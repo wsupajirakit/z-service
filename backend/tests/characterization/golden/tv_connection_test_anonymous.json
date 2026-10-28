@@ -1,0 +1,49 @@
+{
+ "duration": 3.5,
+ "logs": [
+  {
+   "code": "tv.anonymous",
+   "level": "warn",
+   "message": "ไม่มี token/login — โหมด anonymous จะโดน limit ง่ายกว่าปกติ",
+   "params": {}
+  },
+  {
+   "code": "tv.cooldown_none",
+   "level": "info",
+   "message": "ไม่มี cooldown ค้าง — ระบบไม่ได้เจอ limit ในช่วงที่ผ่านมา",
+   "params": {}
+  },
+  {
+   "code": "tv.probe_ok",
+   "level": "ok",
+   "message": "NASDAQ:AAPL ดึงได้ 50 แท่งใน 1.0 วิ",
+   "params": {
+    "bars": 50,
+    "seconds": "1.0",
+    "target": "NASDAQ:AAPL"
+   }
+  },
+  {
+   "code": "tv.probe_ok",
+   "level": "ok",
+   "message": "OANDA:XAUUSD ดึงได้ 50 แท่งใน 1.0 วิ",
+   "params": {
+    "bars": 50,
+    "seconds": "1.0",
+    "target": "OANDA:XAUUSD"
+   }
+  },
+  {
+   "code": "tv.verdict_ok",
+   "level": "ok",
+   "message": "สรุป: เชื่อมต่อ TradingView ปกติ ✓",
+   "params": {}
+  }
+ ],
+ "ok": true,
+ "passed": 2,
+ "total": 2,
+ "verdict": "เชื่อมต่อ TradingView ปกติ ✓",
+ "verdict_code": "tv.verdict_ok",
+ "verdict_level": "ok"
+}

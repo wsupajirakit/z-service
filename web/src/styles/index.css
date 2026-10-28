@@ -1,0 +1,218 @@
+@import "tailwindcss";
+
+/* Theme tokens (shadcn/ui variable names). The two themes only swap values; components use the
+   Tailwind colours mapped below and never a raw colour. Palette: emerald primary on zinc
+   neutrals, kept apart from the indigo/violet of the sister product. */
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+  --radius: 0.625rem;
+  --background: #ffffff;
+  --foreground: #09090b;
+  --card: #ffffff;
+  --card-foreground: #09090b;
+  --popover: #ffffff;
+  --popover-foreground: #09090b;
+  --primary: #059669;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #f4f4f5;
+  --accent-foreground: #18181b;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #e4e4e7;
+  --input: #d4d4d8;
+  --ring: #10b981;
+  --sidebar: #fafafa;
+  --sidebar-foreground: #3f3f46;
+  --sidebar-primary: #059669;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ecfdf5;
+  --sidebar-accent-foreground: #047857;
+  --sidebar-border: #e4e4e7;
+  --sidebar-ring: #10b981;
+  --up: #059669;
+  --down: #dc2626;
+  --warning: #d97706;
+  --overlay: rgb(9 9 11 / 0.45);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #09090b;
+  --foreground: #fafafa;
+  --card: #111113;
+  --card-foreground: #fafafa;
+  --popover: #141417;
+  --popover-foreground: #fafafa;
+  --primary: #10b981;
+  --primary-foreground: #022c22;
+  --secondary: #27272a;
+  --secondary-foreground: #fafafa;
+  --muted: #1d1d20;
+  --muted-foreground: #a1a1aa;
+  --accent: #27272a;
+  --accent-foreground: #fafafa;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #27272a;
+  --input: #3f3f46;
+  --ring: #34d399;
+  --sidebar: #0c0c0e;
+  --sidebar-foreground: #d4d4d8;
+  --sidebar-primary: #10b981;
+  --sidebar-primary-foreground: #022c22;
+  --sidebar-accent: #10b98122;
+  --sidebar-accent-foreground: #6ee7b7;
+  --sidebar-border: #1f1f23;
+  --sidebar-ring: #34d399;
+  --up: #34d399;
+  --down: #f87171;
+  --warning: #fbbf24;
+  --overlay: rgb(0 0 0 / 0.65);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-up: var(--up);
+  --color-down: var(--down);
+  --color-warning: var(--warning);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--border);
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    accent-color: var(--primary);
+  }
+
+  /* A modal dialog keeps the page behind it still. */
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+}
+
+/* Native <dialog> modals: themed backdrop and a short enter animation. */
+dialog::backdrop {
+  background: var(--overlay);
+  backdrop-filter: blur(2px);
+}
+
+dialog[open] {
+  animation: zs-dialog-in 140ms ease-out;
+}
+
+dialog[open][data-side="left"] {
+  animation: zs-sheet-in 180ms ease-out;
+}
+
+@keyframes zs-dialog-in {
+  from { opacity: 0; transform: translateY(6px) scale(0.98); }
+}
+
+@keyframes zs-sheet-in {
+  from { transform: translateX(-100%); }
+}
+
+@keyframes zs-toast-in {
+  from { opacity: 0; transform: translateY(8px); }
+}
+
+.zs-toast {
+  animation: zs-toast-in 160ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  dialog[open],
+  .zs-toast {
+    animation: none;
+  }
+}
+
+/* Markdown digests from the server (headings, tables, code). */
+.markdown h1,
+.markdown h2,
+.markdown h3 {
+  font-weight: 600;
+  margin-top: 1rem;
+}
+.markdown h1 { font-size: 1.125rem; }
+.markdown h2 { font-size: 1rem; }
+.markdown ul { list-style: disc; padding-left: 1.25rem; }
+.markdown ol { list-style: decimal; padding-left: 1.25rem; }
+.markdown a { color: var(--primary); text-decoration: underline; }
+.markdown code {
+  background: var(--muted);
+  border-radius: var(--radius-sm);
+  padding: 0.05rem 0.3rem;
+  font-size: 0.85em;
+}
+.markdown pre {
+  background: var(--muted);
+  border-radius: var(--radius-md);
+  padding: 0.75rem;
+  overflow: auto;
+}
+.markdown table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+.markdown th,
+.markdown td {
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.5rem;
+  text-align: left;
+}
+.markdown th { background: var(--muted); font-weight: 600; }

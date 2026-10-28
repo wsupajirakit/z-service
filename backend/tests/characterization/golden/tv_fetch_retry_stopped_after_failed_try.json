@@ -1,0 +1,17 @@
+{
+ "events": [
+  "wait_turn",
+  "get_hist ext=False -> empty",
+  "ws closed"
+ ],
+ "logs": [
+  [
+   20,
+   "[SYM] Attempt 1 returned empty data. Resetting connection..."
+  ]
+ ],
+ "outcome": {
+  "error": "Job stopped by user"
+ },
+ "unused": []
+}

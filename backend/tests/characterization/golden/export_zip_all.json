@@ -1,0 +1,47 @@
+[
+ {
+  "bytes": 27516,
+  "name": "ztrade_formula.csv",
+  "sha256": "fc18dc62b1ad1f940b840de4cd292b2edbee32e442142bdd76c8cd99db5ae1c4"
+ },
+ {
+  "bytes": 32428,
+  "name": "ztrade_export_1w_part1.csv",
+  "sha256": "c3300fdbeea1797aa4ac0ebce2371ada0d6a7a6231c27e0b5e1680b64f40ccef"
+ },
+ {
+  "bytes": 35555,
+  "name": "ztrade_export_1w_part2.csv",
+  "sha256": "bc9b00591d969d2fd7b5d088186594991fd9b087e5db58e2af1f23f6c21dfeeb"
+ },
+ {
+  "bytes": 32188,
+  "name": "ztrade_export_1d_part1.csv",
+  "sha256": "4c8b1986973292491b0803d43d1f8f0354ebcbee03dde495398fab405504554f"
+ },
+ {
+  "bytes": 35292,
+  "name": "ztrade_export_1d_part2.csv",
+  "sha256": "9f5da2d3f5f3b1f38b1d002f58a1bf4ede255de91272053cdf589af6b5d56ebc"
+ },
+ {
+  "bytes": 31729,
+  "name": "ztrade_export_4h_part1.csv",
+  "sha256": "4b18c27273d0261e1444774eacd5f213b6dd849ef1f7cca41b4ba5ce9bb213e4"
+ },
+ {
+  "bytes": 34788,
+  "name": "ztrade_export_4h_part2.csv",
+  "sha256": "6a2505d4a738b15e9d7abc274741da3d1052aab01df2eb719cb9eb6d7106f33b"
+ },
+ {
+  "bytes": 41876,
+  "name": "ztrade_export_1h_part1.csv",
+  "sha256": "cb2935c60aae54383ab4b60db0524aebf9e72c4c8d21c46f4636a1e2e8d7b21f"
+ },
+ {
+  "bytes": 24905,
+  "name": "ztrade_export_1h_part2.csv",
+  "sha256": "d8760c9d254366ce00b67b62336398122d707273a13d3ff8d236db2e84dcb70d"
+ }
+]

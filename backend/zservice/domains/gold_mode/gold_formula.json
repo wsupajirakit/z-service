@@ -1,0 +1,99 @@
+{
+ "_comment": "Static text of gold_formula.csv (data, not code). Values are str.format templates; fields: mode, exchange and every key of the mode in gold_modes.json. The gold mode zip golden pins the output.",
+ "header": [
+  "Section",
+  "Key",
+  "Field",
+  "Value"
+ ],
+ "analysis_request": [
+  [
+   "Mode",
+   "{mode} — {horizon} · TF: {tf_roles}"
+  ],
+  [
+   "Output 1 — Bias",
+   "สรุปทิศต่อ TF (ขึ้น/ลง/ข้าง) + เหตุผลจากโครงสร้างราคา EMA stack, RSI, CMF, แนวรับ-ต้าน, แท่งล่าสุด"
+  ],
+  [
+   "Output 2 — Order",
+   "ต้องเลือกหนึ่งเดียวชัดเจน: BUY LIMIT @ราคา / BUY STOP @ราคา / SELL LIMIT @ราคา / SELL STOP @ราคา — หรือ NO-TRADE (ไม่ควรเล่นรอบนี้) พร้อมเหตุผล · ห้ามตอบกำกวมว่า 'ซื้อได้ขายได้'"
+  ],
+  [
+   "Output 3 — Levels",
+   "Entry zone + SL + TP1 + TP2 เป็นตัวเลขทั้งหมด · {sl_guide} · R:R ขั้นต่ำ {rr_min}:1 — ต่ำกว่านี้ให้ตอบ NO-TRADE · จุดเข้าต้องอ้างอิง setup ใน ENTRY_PLAYBOOK ด้านล่างอย่างน้อยหนึ่งข้อ ถ้าราคาปัจจุบันไม่เข้าเกณฑ์ setup ไหนเลย = NO-TRADE รอ"
+  ],
+  [
+   "Output 4 — Invalidation",
+   "เงื่อนไขที่ทำให้ setup ตาย (ราคา/เหตุการณ์) — แตะแล้วยกเลิกออเดอร์ค้างทันที"
+  ],
+  [
+   "Output 5 — Companions",
+   "สรุปผลของแต่ละตัวประกอบต่อทองในโหมดนี้: DXY (สวนทาง), US10Y (สวนทางผ่าน real yield), VIX (กลัว=หนุนทอง), USDJPY (การแทรกแซง/ safe-haven flow), SPY (risk appetite), WTI (เงินเฟ้อ), BTC (คู่แข่ง hedge), XAGUSD (คอนเฟิร์มเผ่าโลหะ), GDX (เหมืองนำ/ตาม) — ตัวไหนหนุน ตัวไหนขัด สุทธิแล้วเข้าข้างฝั่งไหน"
+  ],
+  [
+   "Output 6 — News",
+   "ข่าวใน LATEST_FINANCIAL_NEWS ที่กระทบทอง + เวลาข่าวใหญ่ข้างหน้า (Fed/CPI/jobs) — ถ้ามี event ใหญ่ภายใน horizon ให้ลดขนาดหรือ NO-TRADE"
+  ],
+  [
+   "Output 7 — Size & Confidence",
+   "ขนาดไม้แนะนำ (เต็ม/ครึ่ง/หนึ่งในสี่) ตาม ATR และ confidence 0-10 พร้อมเหตุผลบรรทัดเดียว"
+  ],
+  [
+   "Output 8 — Summary",
+   "สรุปเป็นภาษาคน 3-5 บรรทัด: เล่นหรือไม่เล่น เพราะอะไร แผน A (ตามคำสั่งหลัก) และแผน B (ถ้าราคาวิ่งอีกทาง)"
+  ]
+ ],
+ "session_map": [
+  [
+   "Asia",
+   "06:00–14:00 ไทย (19:00–03:00 ET) — เงียบ สร้างกรอบวัน (Asian range) ใช้เป็นโครงให้ London เล่น"
+  ],
+  [
+   "London open",
+   "14:00 ไทย (03:00 ET) — แรงขยับแรกของวัน มัก break/reject กรอบเอเชีย"
+  ],
+  [
+   "London–NY overlap",
+   "19:00–23:00 ไทย (08:00–12:00 ET) — volume+volatility สูงสุดของวัน · ช่วงทำเงินหลักของ scalp/intraday"
+  ],
+  [
+   "US data",
+   "19:30 ไทย (08:30 ET) = NFP (ศุกร์แรกของเดือน)/CPI/jobless — timestamp ผันผวนสุดของสัปดาห์ · FOMC 01:00 ไทย (14:00 ET)"
+  ],
+  [
+   "Dead zone",
+   "หลังปิด NY 04:00-05:00 ไทย + ก่อนเอเชียตื่น — spread กว้าง SL โดนกวาดง่าย งดเทรด"
+  ],
+  [
+   "Daily range",
+   "ทองขยับ $20–50+/วันเป็นปกติ — วางเป้า/SL ให้สมส่วนกับ range จริง ไม่ใช่ความหวัง"
+  ]
+ ],
+ "reading_guide": [
+  [
+   "Order Semantics",
+   "BUY LIMIT = ตั้งซื้อต่ำกว่าราคาปัจจุบัน (รอย่อ) · BUY STOP = ตั้งซื้อเหนือราคาปัจจุบัน (รอทะลุ) · SELL LIMIT = ตั้งขายเหนือราคาปัจจุบัน (รอเด้ง) · SELL STOP = ตั้งขายต่ำกว่าราคาปัจจุบัน (รอหลุด)"
+  ],
+  [
+   "Volume Caveat",
+   "Volume ทุกไฟล์ = tick volume ของ CFD/FX — CMF/OBV/RVOL ใช้เปรียบเทียบ relative เท่านั้น อย่าตีความเป็นเงินสถาบันแบบหุ้น"
+  ],
+  [
+   "Multi-TF Rule",
+   "TF ใหญ่บอกทิศ TF เล็กบอกจังหวะ — ถ้าขัดกันให้ลดขนาดหรือ NO-TRADE · สัญญาณจากแท่งที่ยังไม่ปิด (Is_Closed_Bar=False) ห้ามใช้ยืนยัน"
+  ],
+  [
+   "Correlation Playbook",
+   "ทองแพ้เมื่อ: DXY แข็ง + real yield ขึ้น + risk-on เต็มตัว · ทองชนะเมื่อ: ดอลลาร์อ่อน + yields ลง + ความกลัว (VIX ขึ้น) หรือเงินเฟ้อเร่ง (WTI ขึ้นแรง) · การแทรกแซงเยน (ขาย USD) มักหนุนทองระยะสั้น"
+  ],
+  [
+   "Session",
+   "ตลาดโลหะเปิด ~23 ชม./วัน ปิด 17:00-18:00 ET และสุดสัปดาห์ · สภาพคล่องบางสุดช่วงหลังปิด NY ถึงเปิด Asia — spread กว้าง ระวัง SL โดนกวาด"
+  ],
+  [
+   "Spread Note",
+   "ราคาจาก {exchange} (CFD) มี spread ฝังต่างจาก spot เล็กน้อย — ตั้งระดับด้วยข้อมูลชุดนี้เสมอ อย่าผสมราคาจากแหล่งอื่น"
+  ]
+ ]
+}

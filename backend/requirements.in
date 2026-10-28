@@ -1,0 +1,29 @@
+# Top-level runtime dependencies of the backend image, pinned to the versions the test suite
+# runs against. requirements.lock (all transitive deps, sha256 hashes, Python 3.12) is
+# generated from this file — never edit the lock by hand:
+#   uv pip compile requirements.in --python-version 3.12 \
+#     --python-platform x86_64-unknown-linux-gnu --generate-hashes \
+#     --exclude-newer <today - 7 days> -o requirements.lock
+# then check every pin with the OSV query in tools/osv_audit.py (no known advisories).
+# 7-day rule exception: a younger release is allowed only when it is the earliest one that
+# fixes a known advisory; pin it below and add --exclude-newer-package <name>=<its date+1>.
+# tvdatafeed is a git dependency (no hashes possible); the Dockerfile installs it separately
+# pinned to a commit, see requirements-git.txt.
+fastapi==0.138.2
+starlette==1.3.1
+uvicorn==0.49.0
+pandas==3.0.3
+numpy==2.5.0
+feedparser==6.0.12
+google-api-python-client==2.198.0
+google-auth==2.55.1
+python-dotenv==1.2.2
+pydantic-settings==2.16.0  # typed per-domain config (zservice/core/config.py)
+pandas_market_calendars==5.4.0
+pymongo==4.19.0  # dnspython (SRV URIs) is a regular dependency since pymongo 4.x
+requests==2.34.2
+# tvdatafeed's own dependencies (it is installed with --no-deps)
+websocket-client==1.9.0
+setuptools==84.1.0  # earliest fix for GHSA-xmj3-9gf7-h52w (7-day exception, see below)
+# Security pins younger than the 7-day cutoff (transitive deps pinned on purpose):
+certifi==2026.10.19  # CRITICAL GHSA-6q48-6c7w-9gw2: drops emSign CAs with compromised keys

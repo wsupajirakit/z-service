@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s http://localhost:9999/api/settings/tv_token)"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+# Ruff config for the whole repo. Only the new layout is linted; legacy modules join the
+# include list as each one moves into backend/zservice/ (see docs/web-ui-plan.md).
+
+line-length = 100
+target-version = "py312"          # the Docker image runs Python 3.12
+extend-exclude = ["backend/radar_engine/lib.py"]  # verbatim stock-radar copy, never edited
+include = [
+    "backend/main.py",
+    "backend/zservice/**/*.py",
+    "backend/radar_engine/**/*.py",
+    "backend/tests/**/*.py",
+    "tools/**/*.py",
+]
+
+[lint]
+select = ["E", "W", "F", "I", "B", "UP", "S", "SIM", "RUF"]
+ignore = ["S101"]                 # assert is how pytest tests are written
+
+[lint.per-file-ignores]
+# Thai report texts use en dashes / × on purpose; changing them would change the output.
+"backend/radar_engine/**" = ["RUF001", "RUF002", "RUF003"]
+"backend/tests/radar/**" = ["RUF001", "RUF002", "RUF003", "S105", "S106"]
+"backend/tests/**" = ["S105", "S106"]               # fixed fake secrets in tests
+"tools/manage_keys.py" = ["S603", "S607"]           # calls the macOS `security` CLI on purpose
+"tools/zsvc_client.py" = ["S603", "S607", "S310"]   # same, plus https-only urlopen
+
+[lint.isort]
+known-first-party = ["zservice"]

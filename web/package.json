@@ -1,0 +1,60 @@
+{
+  "name": "z-service-web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=24.11.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "tsc -b",
+    "lint": "eslint . --max-warnings=0",
+    "test": "vitest run",
+    "build": "vite build",
+    "emit-route-shells": "node scripts/emit-route-shells.ts",
+    "check-budget": "node scripts/check-budget.ts",
+    "check-i18n": "node scripts/check-i18n.ts",
+    "verify": "npm run check:api && npm run check-i18n && npm run gen:i18n && npm run typecheck && npm run lint && npm run test && npm run build && npm run emit-route-shells && npm run check-budget",
+    "gen:i18n": "node scripts/gen-i18n.ts",
+    "dev:mock": "vite --mode mock",
+    "gen:api": "openapi-typescript openapi/openapi.json -o src/services/api/openapi.gen.ts",
+    "check:api": "openapi-typescript openapi/openapi.json | diff -q - src/services/api/openapi.gen.ts"
+  },
+  "dependencies": {
+    "@inlang/paraglide-js": "2.29.0",
+    "@tanstack/react-query": "5.104.3",
+    "@tanstack/react-router": "1.170.45",
+    "lightweight-charts": "5.2.1",
+    "markdown-to-jsx": "9.10.3",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@inlang/plugin-message-format": "4.5.4",
+    "@stylistic/eslint-plugin": "5.10.0",
+    "@tailwindcss/vite": "4.3.3",
+    "@tanstack/router-plugin": "1.168.47",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "eslint": "10.13.0",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "globals": "17.13.0",
+    "msw": "3.0.3",
+    "openapi-typescript": "7.13.0",
+    "tailwindcss": "4.3.3",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.71.2",
+    "vite": "8.3.4",
+    "vitest": "5.0.5"
+  },
+  "overrides": {
+    "openapi-typescript": {
+      "typescript": "$typescript"
+    }
+  }
+}

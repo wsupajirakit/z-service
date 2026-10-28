@@ -1,0 +1,14 @@
+{
+  "name": "z-service",
+  "version": "1.0.0",
+  "description": "Root package for running both frontend and backend",
+  "scripts": {
+    "install:all": "npm install && cd dash && npm install && cd ../backend && python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt",
+    "serv": "python3 scripts/dev/run_dev.py",
+    "serv:backend": "cd backend && source venv/bin/activate && uvicorn main:app --reload --port 9999",
+    "serv:frontend": "cd dash && npm run dev -- --port 6600"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

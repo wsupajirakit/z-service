@@ -1,0 +1,59 @@
+{
+ "duration": 8.5,
+ "logs": [
+  {
+   "code": "tv.login_failed_token_used",
+   "level": "warn",
+   "message": "login ด้วย TV_USERNAME (u1) ไม่สำเร็จ — fallback มาใช้ TV_AUTH_TOKEN (เช็ค user/pass)",
+   "params": {
+    "username": "u1"
+   }
+  },
+  {
+   "code": "tv.token_ok",
+   "level": "ok",
+   "message": "ใช้ TV_AUTH_TOKEN — เหลืออายุอีก 60 นาที",
+   "params": {
+    "minutes": 60
+   }
+  },
+  {
+   "code": "tv.cooldown_none",
+   "level": "info",
+   "message": "ไม่มี cooldown ค้าง — ระบบไม่ได้เจอ limit ในช่วงที่ผ่านมา",
+   "params": {}
+  },
+  {
+   "code": "tv.probe_slow",
+   "level": "warn",
+   "message": "NASDAQ:AAPL ดึงได้ 50 แท่งใน 6.0 วิ — ช้าผิดปกติ อาจโดน soft-throttle",
+   "params": {
+    "bars": 50,
+    "seconds": "6.0",
+    "target": "NASDAQ:AAPL"
+   }
+  },
+  {
+   "code": "tv.probe_ok",
+   "level": "ok",
+   "message": "OANDA:XAUUSD ดึงได้ 50 แท่งใน 1.0 วิ",
+   "params": {
+    "bars": 50,
+    "seconds": "1.0",
+    "target": "OANDA:XAUUSD"
+   }
+  },
+  {
+   "code": "tv.verdict_slow",
+   "level": "warn",
+   "message": "สรุป: เชื่อมต่อได้แต่ช้า — น่าจะโดน soft-throttle อยู่ ควรพัก 5-15 นาทีก่อนรัน job",
+   "params": {}
+  }
+ ],
+ "ok": true,
+ "passed": 2,
+ "total": 2,
+ "verdict": "เชื่อมต่อได้แต่ช้า — น่าจะโดน soft-throttle อยู่ ควรพัก 5-15 นาทีก่อนรัน job",
+ "verdict_code": "tv.verdict_slow",
+ "verdict_level": "warn"
+}

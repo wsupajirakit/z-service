@@ -1,0 +1,41 @@
+import { defineMessages } from '..';
+
+// Words every page uses (buttons, states). Page-specific text lives in its own table.
+export const common = defineMessages({
+  en: {
+    cancel: 'Cancel',
+    confirm: 'Confirm',
+    save: 'Save',
+    saving: 'Saving…',
+    close: 'Close',
+    delete: 'Delete',
+    refresh: 'Refresh',
+    loading: 'Loading…',
+    error: 'Something went wrong: {detail}',
+    noData: 'No data yet.',
+    search: 'Search…',
+    pagerSummary: 'Showing {from}–{to} of {total}',
+    pagerPrev: 'Previous',
+    pagerNext: 'Next',
+    pagerPages: 'Pages',
+    perPage: 'Per page',
+  },
+  th: {
+    cancel: 'ยกเลิก',
+    confirm: 'ยืนยัน',
+    save: 'บันทึก',
+    saving: 'กำลังบันทึก…',
+    close: 'ปิด',
+    delete: 'ลบ',
+    refresh: 'รีเฟรช',
+    loading: 'กำลังโหลด…',
+    error: 'เกิดข้อผิดพลาด: {detail}',
+    noData: 'ยังไม่มีข้อมูล',
+    search: 'ค้นหา…',
+    pagerSummary: 'แสดง {from}–{to} จาก {total}',
+    pagerPrev: 'ก่อนหน้า',
+    pagerNext: 'ถัดไป',
+    pagerPages: 'หน้า',
+    perPage: 'ต่อหน้า',
+  },
+});

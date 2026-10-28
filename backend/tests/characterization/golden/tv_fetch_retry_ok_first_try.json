@@ -1,0 +1,12 @@
+{
+ "events": [
+  "wait_turn",
+  "get_hist ext=False -> ok",
+  "ws closed"
+ ],
+ "logs": [],
+ "outcome": {
+  "rows": 2
+ },
+ "unused": []
+}

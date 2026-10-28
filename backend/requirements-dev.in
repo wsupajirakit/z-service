@@ -1,0 +1,11 @@
+# Test and lint tools: the local venv, the commit gate and the pre-push hook — never the
+# image. Same rules as requirements.in (7-day release age, OSV clean); shared packages are
+# constrained to the image's versions. Regenerate requirements-dev.lock with:
+#   uv pip compile requirements-dev.in --python-version 3.12 \
+#     --python-platform x86_64-unknown-linux-gnu --generate-hashes \
+#     --exclude-newer <today - 7 days> -o requirements-dev.lock
+# Local install: pip install -r requirements.txt -r requirements-dev.lock
+-c requirements.lock
+pytest==9.1.1
+ruff==0.17.1
+httpx2==2.13.1  # starlette.testclient (plain httpx is deprecated there since Starlette 1.3)

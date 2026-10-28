@@ -1,0 +1,44 @@
+{
+ "attempted": [
+  {
+   "provider": "finnhub",
+   "status": "ok"
+  }
+ ],
+ "history": [
+  {
+   "eps_actual": 1.2,
+   "eps_estimate": 1.1,
+   "period": "2026-06-30",
+   "revenue_actual": null,
+   "revenue_estimate": null,
+   "surprise_percent": 9.1
+  },
+  {
+   "eps_actual": 1.2,
+   "eps_estimate": 1.1,
+   "period": "2026-06-30",
+   "revenue_actual": null,
+   "revenue_estimate": null,
+   "surprise_percent": 9.1
+  },
+  {
+   "eps_actual": 1.2,
+   "eps_estimate": 1.1,
+   "period": "2026-06-30",
+   "revenue_actual": null,
+   "revenue_estimate": null,
+   "surprise_percent": 9.1
+  },
+  {
+   "eps_actual": 1.2,
+   "eps_estimate": 1.1,
+   "period": "2026-06-30",
+   "revenue_actual": null,
+   "revenue_estimate": null,
+   "surprise_percent": 9.1
+  }
+ ],
+ "next_earnings_date": "2026-11-01",
+ "provider": "finnhub"
+}

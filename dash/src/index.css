@@ -1,0 +1,35 @@
+@import "tailwindcss";
+@import "@heroui/styles";
+
+/* The page canvas follows the active theme (html.dark / data-theme="dark", set by theme.ts). */
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* A word longer than its box (a URL, an ID, a symbol list) breaks instead of overflowing. */
+  overflow-wrap: break-word;
+  @apply bg-background text-foreground;
+}
+
+/* Labels inside controls stay on one line (Thai labels run longer than English ones, and a
+   wrapped button or chip breaks the row's height). Buttons used as cards (h-auto) keep
+   wrapping their multi-line text. Selected values and long labels end with an ellipsis. */
+@layer components {
+  .button:not(.h-auto), .chip, .chip__label, .toggle-button, .tabs__tab,
+  .pagination__link, .pagination__summary {
+    white-space: nowrap;
+  }
+  .chip {
+    max-width: 100%;
+  }
+  /* Cards in a grid or flex row may shrink below their content's width. */
+  .card {
+    min-width: 0;
+  }
+  .select__value, .search-field__input, .chip__label {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

@@ -1,0 +1,915 @@
+[
+ {
+  "body": null,
+  "method": "GET",
+  "params": [
+   [
+    "query",
+    "limit",
+    false
+   ]
+  ],
+  "path": "/api/admin/key_audit"
+ },
+ {
+  "body": {
+   "password": {
+    "required": true,
+    "type": "string"
+   },
+   "username": {
+    "required": true,
+    "type": "string"
+   }
+  },
+  "method": "POST",
+  "params": [],
+  "path": "/api/auth/login"
+ },
+ {
+  "body": null,
+  "method": "POST",
+  "params": [],
+  "path": "/api/auth/logout"
+ },
+ {
+  "body": {
+   "current_password": {
+    "required": true,
+    "type": "string"
+   },
+   "new_password": {
+    "required": true,
+    "type": "string"
+   }
+  },
+  "method": "POST",
+  "params": [],
+  "path": "/api/auth/password"
+ },
+ {
+  "body": {
+   "password": {
+    "required": true,
+    "type": "string"
+   },
+   "username": {
+    "required": true,
+    "type": "string"
+   }
+  },
+  "method": "POST",
+  "params": [],
+  "path": "/api/auth/register"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [],
+  "path": "/api/auth/status"
+ },
+ {
+  "body": {
+   "force_all_tf": {
+    "required": false,
+    "type": "boolean"
+   },
+   "rows": {
+    "required": false,
+    "type": "integer"
+   },
+   "symbols": {
+    "required": true,
+    "type": "array"
+   }
+  },
+  "method": "POST",
+  "params": [],
+  "path": "/api/auto/start"
+ },
+ {
+  "body": null,
+  "method": "POST",
+  "params": [],
+  "path": "/api/auto/start_all"
+ },
+ {
+  "body": null,
+  "method": "POST",
+  "params": [],
+  "path": "/api/auto/stop"
+ },
+ {
+  "body": {
+   "extended_session": {
+    "required": false,
+    "type": [
+     {
+      "type": "boolean"
+     },
+     {
+      "type": "null"
+     }
+    ]
+   },
+   "rows": {
+    "required": false,
+    "type": "integer"
+   },
+   "symbols": {
+    "required": true,
+    "type": "array"
+   },
+   "timeframes": {
+    "required": true,
+    "type": "array"
+   }
+  },
+  "method": "POST",
+  "params": [],
+  "path": "/api/automate"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [],
+  "path": "/api/automate/status"
+ },
+ {
+  "body": {
+   "exchange": {
+    "required": true,
+    "type": "string"
+   },
+   "extended_session": {
+    "required": false,
+    "type": "boolean"
+   },
+   "interval": {
+    "required": true,
+    "type": "string"
+   },
+   "rows": {
+    "required": false,
+    "type": "integer"
+   },
+   "symbol": {
+    "required": true,
+    "type": "string"
+   }
+  },
+  "method": "POST",
+  "params": [],
+  "path": "/api/data"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [
+   [
+    "query",
+    "folder_id",
+    false
+   ]
+  ],
+  "path": "/api/drive/files"
+ },
+ {
+  "body": {
+   "name": {
+    "required": true,
+    "type": "string"
+   },
+   "parent_id": {
+    "required": false,
+    "type": [
+     {
+      "type": "string"
+     },
+     {
+      "type": "null"
+     }
+    ]
+   }
+  },
+  "method": "POST",
+  "params": [],
+  "path": "/api/drive/folder"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [
+   [
+    "query",
+    "limit",
+    false
+   ]
+  ],
+  "path": "/api/earning_scan/history"
+ },
+ {
+  "body": {
+   "symbols": {
+    "required": true,
+    "type": "array"
+   }
+  },
+  "method": "POST",
+  "params": [],
+  "path": "/api/earning_scan/scan"
+ },
+ {
+  "body": null,
+  "method": "POST",
+  "params": [
+   [
+    "path",
+    "sender",
+    true
+   ]
+  ],
+  "path": "/api/events/inbound/{sender}"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [
+   [
+    "query",
+    "interval",
+    true
+   ],
+   [
+    "query",
+    "list_name",
+    false
+   ],
+   [
+    "query",
+    "part",
+    false
+   ]
+  ],
+  "path": "/api/export"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [
+   [
+    "query",
+    "interval",
+    true
+   ],
+   [
+    "query",
+    "list_name",
+    true
+   ]
+  ],
+  "path": "/api/export/check"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [],
+  "path": "/api/export_formula"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [],
+  "path": "/api/export_news"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [
+   [
+    "query",
+    "all",
+    false
+   ],
+   [
+    "query",
+    "interval",
+    false
+   ],
+   [
+    "query",
+    "list_name",
+    false
+   ]
+  ],
+  "path": "/api/export_zip"
+ },
+ {
+  "body": {
+   "exchange": {
+    "required": false,
+    "type": "string"
+   },
+   "model": {
+    "required": false,
+    "type": "string"
+   },
+   "risk_percent": {
+    "required": false,
+    "type": [
+     {
+      "maximum": 100.0,
+      "minimum": 0.0,
+      "type": "number"
+     },
+     {
+      "type": "null"
+     }
+    ]
+   },
+   "rows": {
+    "required": false,
+    "type": "integer"
+   }
+  },
+  "method": "POST",
+  "params": [],
+  "path": "/api/gold/analyze"
+ },
+ {
+  "body": {
+   "exchange": {
+    "required": false,
+    "type": "string"
+   },
+   "model": {
+    "required": false,
+    "type": "string"
+   },
+   "risk_percent": {
+    "required": false,
+    "type": [
+     {
+      "maximum": 100.0,
+      "minimum": 0.0,
+      "type": "number"
+     },
+     {
+      "type": "null"
+     }
+    ]
+   },
+   "rows": {
+    "required": false,
+    "type": "integer"
+   }
+  },
+  "method": "POST",
+  "params": [],
+  "path": "/api/gold/automate"
+ },
+ {
+  "body": null,
+  "method": "POST",
+  "params": [],
+  "path": "/api/gold/automate/stop"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [],
+  "path": "/api/gold/config"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [
+   [
+    "query",
+    "exchange",
+    false
+   ],
+   [
+    "query",
+    "mode",
+    false
+   ]
+  ],
+  "path": "/api/gold/export"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [],
+  "path": "/api/gold/models"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [],
+  "path": "/api/gold/modes"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [
+   [
+    "query",
+    "exchange",
+    false
+   ]
+  ],
+  "path": "/api/gold/price"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [],
+  "path": "/api/gold/status"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [],
+  "path": "/api/healthz"
+ },
+ {
+  "body": null,
+  "method": "DELETE",
+  "params": [],
+  "path": "/api/history"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [],
+  "path": "/api/history"
+ },
+ {
+  "body": null,
+  "method": "POST",
+  "params": [
+   [
+    "query",
+    "hours",
+    false
+   ]
+  ],
+  "path": "/api/history/cleanup"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [
+   [
+    "path",
+    "history_id",
+    true
+   ]
+  ],
+  "path": "/api/history/{history_id}"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [
+   [
+    "query",
+    "limit",
+    false
+   ],
+   [
+    "query",
+    "sender",
+    false
+   ],
+   [
+    "query",
+    "type",
+    false
+   ]
+  ],
+  "path": "/api/inbound-events"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [],
+  "path": "/api/portfolio"
+ },
+ {
+  "body": {
+   "action": {
+    "required": false,
+    "type": "string"
+   },
+   "buy_price": {
+    "required": true,
+    "type": "number"
+   },
+   "port_name": {
+    "required": false,
+    "type": "string"
+   },
+   "quantity": {
+    "required": true,
+    "type": "integer"
+   },
+   "symbol": {
+    "required": true,
+    "type": "string"
+   }
+  },
+  "method": "POST",
+  "params": [],
+  "path": "/api/portfolio"
+ },
+ {
+  "body": {
+   "new_name": {
+    "required": true,
+    "type": "string"
+   }
+  },
+  "method": "PUT",
+  "params": [
+   [
+    "path",
+    "port_name",
+    true
+   ]
+  ],
+  "path": "/api/portfolio/{port_name}"
+ },
+ {
+  "body": null,
+  "method": "DELETE",
+  "params": [
+   [
+    "path",
+    "port_name",
+    true
+   ],
+   [
+    "path",
+    "symbol",
+    true
+   ]
+  ],
+  "path": "/api/portfolio/{port_name}/{symbol}"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [
+   [
+    "query",
+    "limit",
+    false
+   ]
+  ],
+  "path": "/api/radar_round/list"
+ },
+ {
+  "body": {
+   "list_name": {
+    "required": false,
+    "type": [
+     {
+      "maxLength": 64,
+      "type": "string"
+     },
+     {
+      "type": "null"
+     }
+    ]
+   },
+   "new_record": {
+    "required": false,
+    "type": "boolean"
+   },
+   "timeframes": {
+    "required": false,
+    "type": [
+     {
+      "items": {
+       "maxLength": 8,
+       "type": "string"
+      },
+      "maxItems": 8,
+      "type": "array"
+     },
+     {
+      "type": "null"
+     }
+    ]
+   }
+  },
+  "method": "POST",
+  "params": [],
+  "path": "/api/radar_round/run"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [],
+  "path": "/api/radar_round/status"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [
+   [
+    "query",
+    "list_name",
+    false
+   ]
+  ],
+  "path": "/api/radar_round/tf_status"
+ },
+ {
+  "body": null,
+  "method": "DELETE",
+  "params": [
+   [
+    "path",
+    "stamp",
+    true
+   ]
+  ],
+  "path": "/api/radar_round/{stamp}"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [
+   [
+    "path",
+    "stamp",
+    true
+   ]
+  ],
+  "path": "/api/radar_round/{stamp}"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [],
+  "path": "/api/settings/auto_skip_minutes"
+ },
+ {
+  "body": {
+   "minutes": {
+    "required": true,
+    "type": "integer"
+   }
+  },
+  "method": "POST",
+  "params": [],
+  "path": "/api/settings/auto_skip_minutes"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [],
+  "path": "/api/settings/destinations"
+ },
+ {
+  "body": {
+   "dest_gold_drive": {
+    "required": false,
+    "type": [
+     {
+      "type": "boolean"
+     },
+     {
+      "type": "null"
+     }
+    ]
+   },
+   "dest_gold_telegram": {
+    "required": false,
+    "type": [
+     {
+      "type": "boolean"
+     },
+     {
+      "type": "null"
+     }
+    ]
+   },
+   "dest_stock_drive": {
+    "required": false,
+    "type": [
+     {
+      "type": "boolean"
+     },
+     {
+      "type": "null"
+     }
+    ]
+   },
+   "dest_stock_telegram": {
+    "required": false,
+    "type": [
+     {
+      "type": "boolean"
+     },
+     {
+      "type": "null"
+     }
+    ]
+   }
+  },
+  "method": "POST",
+  "params": [],
+  "path": "/api/settings/destinations"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [],
+  "path": "/api/settings/timezone"
+ },
+ {
+  "body": {
+   "label": {
+    "required": true,
+    "type": "string"
+   },
+   "offset_minutes": {
+    "required": true,
+    "type": "integer"
+   }
+  },
+  "method": "POST",
+  "params": [],
+  "path": "/api/settings/timezone"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [],
+  "path": "/api/settings/tv_mode"
+ },
+ {
+  "body": {
+   "mode": {
+    "required": true,
+    "type": "integer"
+   }
+  },
+  "method": "POST",
+  "params": [],
+  "path": "/api/settings/tv_mode"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [],
+  "path": "/api/settings/tv_token"
+ },
+ {
+  "body": {
+   "token": {
+    "required": true,
+    "type": "string"
+   }
+  },
+  "method": "POST",
+  "params": [],
+  "path": "/api/settings/tv_token"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [
+   [
+    "query",
+    "limit",
+    false
+   ]
+  ],
+  "path": "/api/stock_radar/history"
+ },
+ {
+  "body": {
+   "analysis_mode": {
+    "required": false,
+    "type": "string"
+   },
+   "extended_session": {
+    "required": false,
+    "type": "boolean"
+   },
+   "formulas": {
+    "required": true,
+    "type": "array"
+   },
+   "model": {
+    "required": false,
+    "type": "string"
+   },
+   "symbols": {
+    "required": true,
+    "type": "array"
+   },
+   "timeframes": {
+    "required": true,
+    "type": "array"
+   }
+  },
+  "method": "POST",
+  "params": [],
+  "path": "/api/stock_radar/scan"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [],
+  "path": "/api/symbols"
+ },
+ {
+  "body": null,
+  "method": "POST",
+  "params": [],
+  "path": "/api/tv/test"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [],
+  "path": "/api/version"
+ },
+ {
+  "body": null,
+  "method": "GET",
+  "params": [],
+  "path": "/api/watchlist"
+ },
+ {
+  "body": {
+   "exchange": {
+    "required": false,
+    "type": [
+     {
+      "maxLength": 32,
+      "type": "string"
+     },
+     {
+      "type": "null"
+     }
+    ]
+   },
+   "list_name": {
+    "required": false,
+    "type": "string"
+   },
+   "name": {
+    "required": true,
+    "type": "string"
+   },
+   "symbol": {
+    "required": true,
+    "type": "string"
+   }
+  },
+  "method": "POST",
+  "params": [],
+  "path": "/api/watchlist"
+ },
+ {
+  "body": {
+   "new_name": {
+    "required": true,
+    "type": "string"
+   }
+  },
+  "method": "PUT",
+  "params": [
+   [
+    "path",
+    "list_name",
+    true
+   ]
+  ],
+  "path": "/api/watchlist/{list_name}"
+ },
+ {
+  "body": null,
+  "method": "DELETE",
+  "params": [
+   [
+    "path",
+    "list_name",
+    true
+   ],
+   [
+    "path",
+    "symbol",
+    true
+   ]
+  ],
+  "path": "/api/watchlist/{list_name}/{symbol}"
+ }
+]

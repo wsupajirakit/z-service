@@ -1,0 +1,25 @@
+{
+ "events": [
+  "wait_turn",
+  "get_hist ext=False -> empty",
+  "ws closed",
+  "backoff 2",
+  "wait_turn",
+  "get_hist ext=False -> ok",
+  "ws closed"
+ ],
+ "logs": [
+  [
+   20,
+   "[SYM] Attempt 1 returned empty data. Resetting connection..."
+  ],
+  [
+   20,
+   "[SYM] Waiting 2s before next retry..."
+  ]
+ ],
+ "outcome": {
+  "rows": 2
+ },
+ "unused": []
+}

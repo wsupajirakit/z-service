@@ -1,0 +1,56 @@
+{
+ "events": [
+  "wait_turn",
+  "get_hist ext=True -> empty",
+  "ws closed",
+  "backoff 2",
+  "wait_turn",
+  "get_hist ext=True -> empty",
+  "ws closed",
+  "backoff 4",
+  "trip SYM",
+  "wait_turn",
+  "get_hist ext=False -> empty",
+  "ws closed",
+  "backoff 2",
+  "trip SYM"
+ ],
+ "logs": [
+  [
+   20,
+   "[SYM] Attempt 1 returned empty data. Resetting connection..."
+  ],
+  [
+   20,
+   "[SYM] Waiting 2s before next retry..."
+  ],
+  [
+   20,
+   "[SYM] Attempt 2 returned empty data. Resetting connection..."
+  ],
+  [
+   20,
+   "[SYM] Waiting 4s before next retry..."
+  ],
+  [
+   30,
+   "[SYM] Exhausted retries with extended=True, trying extended=False"
+  ],
+  [
+   20,
+   "[SYM] Attempt 1 returned empty data. Resetting connection..."
+  ],
+  [
+   20,
+   "[SYM] Waiting 2s before next retry..."
+  ],
+  [
+   "logger.error",
+   "[SYM] TV fallback with extended=False failed: Failed after 0 retries. Last error: Empty data returned (possible rate limit or connection drop)"
+  ]
+ ],
+ "outcome": {
+  "error": "Failed after 1 retries. Last error: Failed after 0 retries. Last error: Empty data returned (possible rate limit or connection drop)"
+ },
+ "unused": []
+}

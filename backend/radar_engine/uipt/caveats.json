@@ -1,0 +1,16 @@
+{
+ "_comment": "Known limits of UIPT-S / UIPT-M on CSV snapshots, shown with every ranking (data, not code; loaded by radar_engine/uipt/rank.py).",
+ "short": [
+  "คะแนน 1H ตามสเปกต้องรวม OBV ด้วย แต่รอบเก็บแค่แท่งล่าสุด (ไม่มีเส้น OBV) — จึงใช้ CMF/RVOL/สถานะ IPI แทน (OBV มีผลอยู่ในเงื่อนไข Phase-4 แล้ว)",
+  "x (จำนวนวัน) ขยับเฉพาะ time-stop — น้ำหนัก TF / ความกว้าง stop / ระยะเป้า ยังไม่ interpolate ตาม x (สเปกให้ทำ แต่ยังไม่ได้ implement)",
+  "‘median dollar-volume > $30M/วัน’ ในสเปกใช้ค่ามัธยฐาน แต่ไฟล์ export มีแค่แท่งล่าสุด — เกตนี้ใช้ dollar-volume แท่งล่าสุดแทน",
+  "‘1D CMF ขึ้น 3 แท่งติด’ ตรวจไม่ได้ (รอบเก็บแค่แท่งล่าสุดต่อ TF) จึงใช้เงื่อนไข 1D CMF > 0 อย่างเดียว",
+  "TIME-STOP บอกเป็นจำนวนวันทำการ ไม่ใช่วันที่ปฏิทิน · ปฏิทินงบ/CPI/FOMC ไม่มีในข้อมูลชุดนี้ ต้องเช็คเอง"
+ ],
+ "medium": [
+  "x (จำนวนสัปดาห์) ขยับเฉพาะ time-stop — น้ำหนัก TF / ความกว้าง stop / ระยะเป้า ยังไม่ interpolate ตาม x (สเปกให้ทำ แต่ยังไม่ได้ implement)",
+  "‘first touch after breakout’ ตรวจไม่ได้จากแท่งล่าสุด — บริบท Phase-3 จึงเช็คแค่ว่าราคาอยู่ในโซน EMA20–50 รายวัน",
+  "T2 ‘weekly extension level’ ใช้จุดสูงสุด 60 แท่งแทน (ไม่มีข้อมูล projection รายสัปดาห์ในไฟล์)",
+  "TIME-STOP บอกเป็นสัปดาห์ · วันงบ/CPI/FOMC ในหน้าต่างถือไม่มีในข้อมูลชุดนี้ ต้องเช็คเอง"
+ ]
+}

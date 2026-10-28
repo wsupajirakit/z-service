@@ -1,0 +1,36 @@
+# Python
+backend/venv/
+backend/.venv/
+**/__pycache__/
+*.py[cod]
+
+# Databases (do NOT bake local data into the image; use a Coolify volume on /data)
+*.db
+!backend/history.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# Node / frontend build artifacts (rebuilt inside the image)
+**/node_modules/
+dash/dist/
+web/dist/
+
+# Env & secrets (production build uses relative /api paths; no env file needed).
+# Credentials live in Coolify env vars, never in the image.
+.env
+.env.*
+gen-lang-client-*.json
+oauth_client*.json
+client_secret*.json
+*service-account*.json
+*credentials*.json
+*-key.json
+
+# Misc
+.git/
+.gitignore
+.DS_Store
+*.md
+cmd.md

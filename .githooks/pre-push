@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Pre-push gate (plan section 11). Not active until you opt in:
+#   git config core.hooksPath .githooks
+# Runs the same checks the Docker build runs, plus the network-dependent audits that the
+# image build deliberately skips. Skip once with: git push --no-verify
+set -euo pipefail
+cd "$(git rev-parse --show-toplevel)"
+echo "[pre-push] backend: ruff + structure + pytest"
+backend/venv/bin/ruff check .
+backend/venv/bin/ruff format --check .
+python3 tools/check_structure.py
+python3 tools/check_notes.py
+python3 tools/check_private.py
+(cd backend && MONGO_URI= nice -n 15 venv/bin/python -m pytest -q)
+echo "[pre-push] web: verify + audit"
+(cd web && nice -n 15 npm run verify >/dev/null && npm audit --audit-level=moderate)
+echo "[pre-push] legacy dash: build + audit"
+(cd dash && nice -n 15 npm run build >/dev/null && npm audit --audit-level=moderate)
+echo "[pre-push] no secrets in the pushed diff"
+if git log -p @{u}.. 2>/dev/null | grep -nE '^\+.*(zsk_[A-Za-z0-9]{4,32}_[A-Za-z0-9_-]{32,}|PULL_KEY *= *"[^"]+")'; then
+  echo "[pre-push] refusing: a key literal is in the commits being pushed" >&2
+  exit 1
+fi
+echo "[pre-push] OK"

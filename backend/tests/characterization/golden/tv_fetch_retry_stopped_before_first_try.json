@@ -1,0 +1,10 @@
+{
+ "events": [],
+ "logs": [],
+ "outcome": {
+  "error": "Job stopped by user"
+ },
+ "unused": [
+  "ok"
+ ]
+}

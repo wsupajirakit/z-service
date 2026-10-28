@@ -1,0 +1,18 @@
+{
+ "prompt_chars": 22743,
+ "prompt_sha256": "d0f10a55d1b59313c980a3e4ef18d47f95ec115b649bc7ab52f9013417afc382",
+ "result_keys": [
+  "analysis",
+  "cross_market",
+  "exchange",
+  "latest_price",
+  "model",
+  "news_count",
+  "news_lines",
+  "snapshots",
+  "source_label",
+  "tf_blocks",
+  "timeframes"
+ ],
+ "result_sha256": "9d28fc6a7e31c98337ee5af79976dcdda9265c9b9af60a5d40633d3f4ed13a0f"
+}

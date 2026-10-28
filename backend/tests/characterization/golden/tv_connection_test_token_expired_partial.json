@@ -1,0 +1,52 @@
+{
+ "duration": 5.5,
+ "logs": [
+  {
+   "code": "tv.token_expired",
+   "level": "warn",
+   "message": "TV_AUTH_TOKEN หมดอายุแล้ว (2 นาทีก่อน) — เอา token ใหม่มาใส่ หรือลบทิ้ง",
+   "params": {
+    "minutes": 2
+   }
+  },
+  {
+   "code": "tv.cooldown_active",
+   "level": "warn",
+   "message": "Circuit breaker กำลังพัก request อีก 42 วิ (เพิ่งเจอ limit) — ทดสอบข้ามช่วงพักให้เลย",
+   "params": {
+    "seconds": 42
+   }
+  },
+  {
+   "code": "tv.probe_ok",
+   "level": "ok",
+   "message": "NASDAQ:AAPL ดึงได้ 50 แท่งใน 1.0 วิ",
+   "params": {
+    "bars": 50,
+    "seconds": "1.0",
+    "target": "NASDAQ:AAPL"
+   }
+  },
+  {
+   "code": "tv.probe_empty",
+   "level": "error",
+   "message": "OANDA:XAUUSD ตอบกลับว่างใน 3.0 วิ — โดน limit หรือ connection โดนตัด",
+   "params": {
+    "seconds": "3.0",
+    "target": "OANDA:XAUUSD"
+   }
+  },
+  {
+   "code": "tv.verdict_partial",
+   "level": "warn",
+   "message": "สรุป: เชื่อมต่อได้บางส่วน — โดน limit เป็นช่วงๆ ควรพักก่อนรัน job",
+   "params": {}
+  }
+ ],
+ "ok": false,
+ "passed": 1,
+ "total": 2,
+ "verdict": "เชื่อมต่อได้บางส่วน — โดน limit เป็นช่วงๆ ควรพักก่อนรัน job",
+ "verdict_code": "tv.verdict_partial",
+ "verdict_level": "warn"
+}

@@ -1,0 +1,6 @@
+# Local development install (no hashes): pip install -r requirements.txt
+# The Docker image installs requirements.lock with --require-hashes instead (plan B10).
+# Edit requirements.in, then regenerate the lock:
+#   uv pip compile requirements.in --python-version 3.12 --python-platform x86_64-unknown-linux-gnu --generate-hashes -o requirements.lock
+-r requirements.in
+-r requirements-git.txt

@@ -1,0 +1,26 @@
+[
+ {
+  "name": "gold_formula.csv",
+  "sha256": "1022cd8ae7248fda2d0ca978094539f37ecfb049aa6c4fbaf9d89beb7814749e"
+ },
+ {
+  "name": "xauusd_5m.csv",
+  "sha256": "4eef3861519caac6a1c6978df1b02e560c5d782c38ed255b47506bd2e8729365"
+ },
+ {
+  "name": "xauusd_15m.csv",
+  "sha256": "0cc596dafb1d5c48ec244a03dd987ac609cb824fae87f2d26fc533dcdd0375ea"
+ },
+ {
+  "name": "dxy_15m.csv",
+  "sha256": "d23d631ff4970645ed227458ccd38fdd1ffd74d998119663085e1e838a5db5e0"
+ },
+ {
+  "name": "us10y_15m.csv",
+  "sha256": "3975ab23c5d1c8255ee096979497e6bd822f4723f20b9add673b73ec759a295e"
+ },
+ {
+  "name": "usdjpy_15m.csv",
+  "sha256": "9109cab33d93de5858970a4ef633e9b303f2cd4ccd5ce469ebe3bc3cd26f8cf1"
+ }
+]

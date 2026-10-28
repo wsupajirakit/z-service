@@ -1,0 +1,594 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "action_add": "Add",
+  "action_clear_selection": "Clear selection",
+  "action_done": "Done",
+  "action_download": "Download",
+  "action_rename": "Rename",
+  "action_running": "Working…",
+  "action_save": "Save",
+  "action_select_all": "Select all",
+  "action_selected": "Viewing",
+  "action_view": "View",
+  "all_lists": "All lists",
+  "app_tagline": "Market data service",
+  "app_title": "z-service",
+  "auto_description": "Keeps fetching on the server as bars close, until stopped.",
+  "auto_force_all_tf": "Fetch all 4 timeframes every round (legacy mode)",
+  "auto_missing_exchange": "Unknown exchange for: {list} (skipped)",
+  "auto_skip_label": "Minutes ({min}..{max})",
+  "auto_start_all": "Start auto with the server list",
+  "auto_start_all_details": "The server loops over its own symbol list (build ∪ database), 80 bars, every timeframe whose bar just closed. It keeps running after this tab closes and notifies Telegram each round.",
+  "auto_start_confirm": "Start",
+  "auto_start_details_default": [
+    {
+      "declarations": [
+        "input count",
+        "local countPlural = count: plural"
+      ],
+      "selectors": [
+        "countPlural"
+      ],
+      "match": {
+        "countPlural=one": "Loops over {count} symbol, {rows} bars, only timeframes whose bar just closed (cheapest). Runs on the server until stopped.",
+        "countPlural=*": "Loops over {count} symbols, {rows} bars, only timeframes whose bar just closed (cheapest). Runs on the server until stopped."
+      }
+    }
+  ],
+  "auto_start_details_legacy": [
+    {
+      "declarations": [
+        "input count",
+        "local countPlural = count: plural"
+      ],
+      "selectors": [
+        "countPlural"
+      ],
+      "match": {
+        "countPlural=one": "Loops over {count} symbol, {rows} bars, all 4 timeframes every round (more time and quota). Runs on the server until stopped.",
+        "countPlural=*": "Loops over {count} symbols, {rows} bars, all 4 timeframes every round (more time and quota). Runs on the server until stopped."
+      }
+    }
+  ],
+  "auto_start_selected": "Start auto with the selected symbols",
+  "auto_title": "Continuous auto fetch",
+  "chart_attribution": "Charting by TradingView Lightweight Charts",
+  "chart_title": "Sample chart (dummy data)",
+  "col_action": "Action",
+  "col_added": "Added",
+  "col_asof": "As of (ET)",
+  "col_avg_price": "Average cost",
+  "col_duplicates": "Duplicates",
+  "col_eps": "EPS actual / estimate",
+  "col_exchange": "Exchange",
+  "col_extended": "Extended hours",
+  "col_fetched_at": "Last fetched",
+  "col_interval": "Timeframe",
+  "col_kill_pct": "Kill %",
+  "col_list": "List",
+  "col_name": "Name",
+  "col_next_earnings": "Next earnings",
+  "col_note": "Note",
+  "col_period": "Quarter",
+  "col_price": "Price",
+  "col_provider": "Provider",
+  "col_quantity": "Quantity",
+  "col_regime": "Regime",
+  "col_round": "Round",
+  "col_symbol": "Ticker",
+  "col_symbols": "Tickers",
+  "col_time": "Time",
+  "col_timeframe": "Timeframe",
+  "confirm_cancel": "Cancel",
+  "confirm_cost": "Warning: this calls paid AI/data providers and uses account quota.",
+  "custom_description": "Fetches the chosen symbols and timeframes once.",
+  "custom_details": [
+    {
+      "declarations": [
+        "input count",
+        "local countPlural = count: plural"
+      ],
+      "selectors": [
+        "countPlural"
+      ],
+      "match": {
+        "countPlural=one": "Fetches {count} symbol for {tfs}, {rows} bars, once on the server, then notifies Telegram.",
+        "countPlural=*": "Fetches {count} symbols for {tfs}, {rows} bars, once on the server, then notifies Telegram."
+      }
+    }
+  ],
+  "custom_start": "Start fetch",
+  "custom_title": "Custom fetch (one-off)",
+  "dest_confirm_off": "Reports will no longer be sent to {name} until it is turned back on.",
+  "dest_confirm_off_title": "Turn this destination off?",
+  "dest_confirm_on": "Reports will be sent to {name} again from the next run.",
+  "dest_confirm_on_title": "Turn this destination on?",
+  "dest_gold_drive": "Gold → Google Drive",
+  "dest_gold_telegram": "Gold → Telegram",
+  "dest_stock_drive": "Stocks → Google Drive",
+  "dest_stock_telegram": "Stocks → Telegram",
+  "dest_turn_off": "Turn off",
+  "dest_turn_on": "Turn on",
+  "dialog_close": "Close",
+  "earning_run_summary": [
+    {
+      "declarations": [
+        "input count",
+        "local countPlural = count: plural"
+      ],
+      "selectors": [
+        "countPlural"
+      ],
+      "match": {
+        "countPlural=one": "{count} ticker",
+        "countPlural=*": "{count} tickers"
+      }
+    }
+  ],
+  "earning_scan_description": "Reads the latest quarter and the next earnings date per ticker.",
+  "earning_scan_details": [
+    {
+      "declarations": [
+        "input count",
+        "local countPlural = count: plural"
+      ],
+      "selectors": [
+        "countPlural"
+      ],
+      "match": {
+        "countPlural=one": "Calls the earnings data providers (Finnhub, FMP, Alpha Vantage) for {count} symbol, possibly several times, then saves the result to history.",
+        "countPlural=*": "Calls the earnings data providers (Finnhub, FMP, Alpha Vantage) for {count} symbols, possibly several times each, then saves the result to history."
+      }
+    }
+  ],
+  "earning_scan_done": [
+    {
+      "declarations": [
+        "input count",
+        "local countPlural = count: plural"
+      ],
+      "selectors": [
+        "countPlural"
+      ],
+      "match": {
+        "countPlural=one": "{count} symbol scanned",
+        "countPlural=*": "{count} symbols scanned"
+      }
+    }
+  ],
+  "earning_scan_start": "Start earnings scan",
+  "earning_scan_title": "New earnings scan",
+  "enum_mode_auto": "auto",
+  "enum_mode_custom": "custom",
+  "enum_phase_building": "building",
+  "enum_phase_cooldown": "cooldown",
+  "enum_phase_fetching": "fetching",
+  "enum_phase_idle": "idle",
+  "enum_phase_saving": "saving",
+  "enum_phase_screening": "screening",
+  "enum_status_done": "done",
+  "enum_status_error": "error",
+  "enum_status_idle": "idle",
+  "enum_status_running": "running",
+  "enum_status_stopped": "stopped",
+  "err_ai_bad_response": "The AI returned an unexpected answer",
+  "err_ai_failed": "AI analysis failed: {reason}",
+  "err_ai_http_error": "The AI service refused the request (HTTP {status})",
+  "err_ai_invalid_model": "That AI model name is not valid",
+  "err_ai_models_failed": "Could not load the AI model list",
+  "err_ai_no_api_key": "The server has no AI key configured",
+  "err_ai_unavailable": "The AI service is not responding — try again",
+  "err_auth_bad_credentials": "Wrong username or password",
+  "err_auth_db_error": "The database is not reachable",
+  "err_auth_missing_fields": "Enter both username and password",
+  "err_auth_password_short": "The password needs at least {min} characters",
+  "err_auth_password_unchanged": "The new password must differ from the current one",
+  "err_auth_rate_limited": "Too many attempts — wait {retry_after} seconds",
+  "err_auth_registration_closed": "Registration is closed on this server",
+  "err_auth_user_exists": "A user already exists — registration is closed",
+  "err_auth_wrong_current_password": "The current password is wrong",
+  "err_drive_bad_id": "That is not a Google Drive id",
+  "err_drive_folder_required": "Choose a Drive folder",
+  "err_drive_name_required": "Enter a folder name",
+  "err_drive_not_configured": "Google Drive is not configured on the server",
+  "err_drive_outside_root": "That item is outside the allowed Drive folder",
+  "err_drive_root_delete": "The root folder cannot be deleted",
+  "err_events_bad_body": "The message is not JSON.",
+  "err_events_bad_headers": "The message lacks its webhook headers.",
+  "err_events_bad_signature": "The signature does not match this sender.",
+  "err_events_not_cloudevent": "The message is not a CloudEvents 1.0 event.",
+  "err_events_stale": "The message is too old (or the clocks differ).",
+  "err_events_too_large": "The message is too large.",
+  "err_events_unknown_sender": "Unknown sender.",
+  "err_exports_invalid_interval": "Unknown timeframe — use {allowed}",
+  "err_gold_already_running": "A gold analysis is already running",
+  "err_gold_mode_invalid_exchange": "Unknown exchange — use one of {allowed}",
+  "err_gold_mode_invalid_mode": "Unknown mode — use one of {allowed}",
+  "err_gold_mode_no_xau": "No XAUUSD data from {exchange}",
+  "err_gold_price_failed": "Could not read the gold price: {reason}",
+  "err_gold_unsupported_source": "Unsupported price source — use one of {allowed}",
+  "err_history_hours_range": "Hours must be between {min} and {max}",
+  "err_history_not_found": "That history record no longer exists",
+  "err_http_too_large": "The request is too large (max {max} bytes)",
+  "err_jobs_already_running": "A job is already running",
+  "err_jobs_no_symbols": "Choose at least one symbol",
+  "err_jobs_no_timeframes": "Choose a timeframe — {allowed}",
+  "err_jobs_server_list_empty": "The server symbol list is empty",
+  "err_lists_invalid_name": "That name is not valid",
+  "err_lists_rename_failed": "Could not rename the list",
+  "err_market_fetch_failed": "Fetching from TradingView failed: {reason}",
+  "err_market_invalid_interval": "Unknown timeframe — use {allowed}",
+  "err_market_no_data": "TradingView returned no data — check the symbol and exchange",
+  "err_radar_already_running": "A radar round is already running",
+  "err_radar_invalid_request": "The radar round cannot run: {reason}",
+  "err_radar_not_found": "Radar round {stamp} does not exist",
+  "err_settings_minutes_range": "Minutes must be between {min} and {max}",
+  "err_settings_offset_range": "The offset must be between {min} and {max} minutes",
+  "err_tv_invalid_mode": "Unknown TradingView login mode",
+  "err_tv_token_empty": "Paste a token first",
+  "err_tv_token_expired": "That token has already expired",
+  "error_generic": "Could not load data",
+  "error_http": "Server answered {status} {detail}",
+  "export_all": "ZIP of all 4 timeframes",
+  "export_all_symbols": "All symbols",
+  "export_card_title": "Download data",
+  "export_check": "{available}/{total} have data · {missing} missing",
+  "export_formula": "Formula file",
+  "export_news": "News file",
+  "export_part": "CSV part {part}",
+  "export_zip": "ZIP for this timeframe",
+  "fetch_description": "Fetches bars for one symbol and shows them here (not saved).",
+  "fetch_run": "Fetch",
+  "fetch_title": "Fetch one symbol",
+  "field_exchange": "Exchange",
+  "field_extended": "Include extended hours",
+  "field_interval": "Interval",
+  "field_list": "List",
+  "field_name": "Name",
+  "field_new_name": "New name",
+  "field_portfolio": "Portfolio",
+  "field_rows": "Bars",
+  "field_symbol": "Symbol",
+  "field_symbols_picked": [
+    {
+      "declarations": [
+        "input count",
+        "local countPlural = count: plural"
+      ],
+      "selectors": [
+        "countPlural"
+      ],
+      "match": {
+        "countPlural=one": "{count} selected",
+        "countPlural=*": "{count} selected"
+      }
+    }
+  ],
+  "field_timeframes": "Timeframes",
+  "gold_analyze": "Analyze with AI",
+  "gold_analyze_details": "Fetches XAUUSD from {exchange} on every timeframe plus recent news and sends it to {model} (result shown here, not saved).",
+  "gold_export_title": "Gold data sets per mode",
+  "gold_job_description": "Runs on the server, uploads to Drive and notifies Telegram.",
+  "gold_job_start": "Start gold job",
+  "gold_job_start_details": "The server fetches XAUUSD from {exchange}, has {model} analyze it, uploads the result to Drive and notifies Telegram per your destinations.",
+  "gold_job_state": "Status {status} · {at}",
+  "gold_job_stop": "Stop gold job",
+  "gold_job_stop_details": "Sends a stop signal to the running gold job; unfinished results are not uploaded.",
+  "gold_job_title": "Server gold job",
+  "gold_model": "AI model",
+  "gold_price_label": "XAUUSD price",
+  "gold_price_refresh": "Get latest price",
+  "gold_source": "Price source",
+  "history_cleanup": "Delete old rows",
+  "history_cleanup_details": "History rows older than {hours} hours will be deleted, always keeping the newest row per symbol and timeframe. This cannot be undone.",
+  "history_clear": "Clear all history",
+  "history_clear_confirm": "Delete everything",
+  "history_clear_details": "Every fetch history row will be deleted, including the newest rows the exports use. Exports stay empty until data is fetched again. This cannot be undone.",
+  "history_detail_title": "Stored result #{id}",
+  "history_hours": "Hours ({min}..{max})",
+  "history_maintenance": "Clean up history",
+  "history_maintenance_hint": "Frees space by deleting stored fetch results.",
+  "history_search_placeholder": "Ticker or timeframe",
+  "inbound_intro": "Results other systems reported here as signed events (CloudEvents over Standard Webhooks). Open a row to see the result where it was produced.",
+  "inbound_open": "Open result",
+  "inbound_sender": "Sender",
+  "inbound_subject": "About",
+  "inbound_type": "Event",
+  "invalid_input": "Invalid value: {field}",
+  "job_cooldown": "Cooling down until {until}",
+  "job_failed": "Failed: {list}",
+  "job_logs": "Recent log",
+  "job_progress": "Round {round} · TF {tf} · {symbol} · {current}/{total}",
+  "job_state": "Job: {mode} · {status} · {phase}",
+  "job_status_title": "Job status",
+  "job_stop": "Stop job",
+  "job_stop_auto_details": "The auto loop stops after the current symbol and will not start a new round until started again.",
+  "job_stop_custom_details": "The custom fetch is cancelled; symbols not fetched yet are skipped.",
+  "job_stop_title": "Stop the running job",
+  "locale_label": "Language",
+  "login_description": "Use the account of this server.",
+  "login_password": "Password",
+  "login_submit": "Sign in",
+  "login_title": "Sign in",
+  "login_username": "Username",
+  "logout": "Log out",
+  "msg_earning_no_provider": "Every provider (Finnhub, FMP, Alpha Vantage) was tried — no earnings data for this symbol",
+  "msg_gold_not_running": "No gold job is running",
+  "msg_gold_stop_sent": "Stop signal sent",
+  "msg_history_cleaned": [
+    {
+      "declarations": [
+        "input deleted",
+        "local deletedPlural = deleted: plural"
+      ],
+      "selectors": [
+        "deletedPlural"
+      ],
+      "match": {
+        "deletedPlural=one": "Deleted {deleted} row older than {hours} h (the newest per symbol is kept)",
+        "deletedPlural=*": "Deleted {deleted} rows older than {hours} h (the newest per symbol is kept)"
+      }
+    }
+  ],
+  "msg_history_cleared": "History cleared",
+  "msg_radar_asof_ahead": "This round's as-of ({asof} ET) is {hours} h ahead of now — the CSV files carry no time header, so the formula estimates it from the newest bar end (a 1W bar end can be up to 7 days ahead). Do not read it as real time.",
+  "msg_radar_data_old_days": "The data in this round is {age} days older than when it was computed — it shows the market at {asof} ET, not now (fetch fresh data before deciding today)",
+  "msg_radar_data_old_hours": "The data in this round is {age} h older than when it was computed — it shows the market at {asof} ET, not now (fetch fresh data before deciding today)",
+  "msg_radar_done": "Done",
+  "msg_radar_done_pruned": [
+    {
+      "declarations": [
+        "input count",
+        "local countPlural = count: plural"
+      ],
+      "selectors": [
+        "countPlural"
+      ],
+      "match": {
+        "countPlural=one": "Done · at most {keep} rounds are kept, so the oldest one was deleted ({stamps})",
+        "countPlural=*": "Done · at most {keep} rounds are kept, so the {count} oldest were deleted ({stamps})"
+      }
+    }
+  ],
+  "msg_radar_failed": "The round failed: {reason}",
+  "msg_radar_fetching_tf": "Reading {tf} from the database",
+  "msg_radar_formula_csv": "Building the formula file + news (formula csv)",
+  "msg_radar_missing_1d_nodata": "No 1D → no full UIPT stage (falls back to the short UIPT-S mode) · breadth/RS computed from 4H instead (no data in the DB)",
+  "msg_radar_missing_1d_unselected": "No 1D → no full UIPT stage (falls back to the short UIPT-S mode) · breadth/RS computed from 4H instead (not selected)",
+  "msg_radar_missing_1h_nodata": "No 1H → no entry trigger layer (hourly VWAP/RVOL/OBV) · no stage can reach TRIGGER (no data in the DB)",
+  "msg_radar_missing_1h_unselected": "No 1H → no entry trigger layer (hourly VWAP/RVOL/OBV) · no stage can reach TRIGGER (not selected)",
+  "msg_radar_missing_1w_nodata": "No 1W → the weekly Kill-Switch cannot be checked · every stage is less reliable (full UIPT needs 1W) (no data in the DB)",
+  "msg_radar_missing_1w_unselected": "No 1W → the weekly Kill-Switch cannot be checked · every stage is less reliable (full UIPT needs 1W) (not selected)",
+  "msg_radar_missing_4h_nodata": "No 4H → the middle confirmation layer is missing (structure between 1D and 1H) (no data in the DB)",
+  "msg_radar_missing_4h_unselected": "No 4H → the middle confirmation layer is missing (structure between 1D and 1H) (not selected)",
+  "msg_radar_reused": "Data unchanged since the last round — the existing round is used",
+  "msg_radar_saving": "Saving the round to the database",
+  "msg_radar_screening": "Running the radar formula ({tfs})",
+  "msg_radar_short_without_4h": "This round fell back to the short mode (UIPT-S), which uses 4H as its structure gate, but there is no 4H → every symbol comes out NO-DATA and kill% = 0 by construction, not because the market is good — this round cannot be used to decide; select 4H, or 1W+1D as well",
+  "msg_radar_started": "Starting a new round",
+  "msg_radar_tf_mixed": "{tf} has several save times ({count} values) — some symbols are left over from an older round",
+  "msg_radar_tf_older": "{tf} is {hours} h older than the newest timeframe in this round — different clocks; be careful reading confluence across timeframes",
+  "msg_radar_thread_failed": "Could not start the background worker",
+  "msg_tv_anonymous": "No token or login — anonymous mode hits rate limits more easily",
+  "msg_tv_cooldown_active": "The circuit breaker pauses requests for {seconds} s more (a limit was hit recently) — the test skips the pause",
+  "msg_tv_cooldown_none": "No cooldown pending — no limit was hit recently",
+  "msg_tv_login_failed_anonymous": "Login as TV_USERNAME ({username}) failed and there is no backup token — anonymous mode",
+  "msg_tv_login_failed_token_used": "Login as TV_USERNAME ({username}) failed — falling back to TV_AUTH_TOKEN (check the user/password)",
+  "msg_tv_login_ok": "Logged in as TV_USERNAME ({username}) — token valid for {minutes} more min (renewed automatically)",
+  "msg_tv_probe_empty": "{target} returned nothing in {seconds} s — rate-limited or the connection was cut",
+  "msg_tv_probe_error": "{target} error: {error}",
+  "msg_tv_probe_ok": [
+    {
+      "declarations": [
+        "input bars",
+        "local barsPlural = bars: plural"
+      ],
+      "selectors": [
+        "barsPlural"
+      ],
+      "match": {
+        "barsPlural=one": "{target}: {bars} bar in {seconds} s",
+        "barsPlural=*": "{target}: {bars} bars in {seconds} s"
+      }
+    }
+  ],
+  "msg_tv_probe_slow": [
+    {
+      "declarations": [
+        "input bars",
+        "local barsPlural = bars: plural"
+      ],
+      "selectors": [
+        "barsPlural"
+      ],
+      "match": {
+        "barsPlural=one": "{target}: {bars} bar in {seconds} s — unusually slow, possibly soft-throttled",
+        "barsPlural=*": "{target}: {bars} bars in {seconds} s — unusually slow, possibly soft-throttled"
+      }
+    }
+  ],
+  "msg_tv_probe_timeout": "{target} hung for over {seconds} s — looks throttled or rate-limited",
+  "msg_tv_token_expired": "TV_AUTH_TOKEN expired {minutes} min ago — paste a new token or remove it",
+  "msg_tv_token_ok": "Using TV_AUTH_TOKEN — valid for {minutes} more min",
+  "msg_tv_token_unreadable": "Using TV_AUTH_TOKEN (its expiry could not be read)",
+  "msg_tv_verdict_down": "Cannot connect / rate-limited — wait 5–15 min, close TradingView tabs in the browser, then test again",
+  "msg_tv_verdict_ok": "TradingView connection is fine ✓",
+  "msg_tv_verdict_partial": "Partly connected — rate-limited at times; rest before running a job",
+  "msg_tv_verdict_slow": "Connected but slow — probably soft-throttled; rest 5–15 min before running a job",
+  "nav_dashboard": "Jobs",
+  "nav_earning_scan": "Earnings scan history",
+  "nav_export": "Export",
+  "nav_gold": "Gold",
+  "nav_history": "Fetch history",
+  "nav_home": "Overview",
+  "nav_inbound_events": "Inbound events",
+  "nav_label": "Main menu",
+  "nav_portfolio": "Portfolio",
+  "nav_radar_summary": "Radar summary",
+  "nav_settings": "Settings",
+  "nav_stock_radar": "Stock Radar history",
+  "nav_watchlist": "Watchlist",
+  "no": "No",
+  "overview_by_exchange": "Tickers per exchange",
+  "overview_exchanges": "Exchanges",
+  "overview_missing": "Missing exchange",
+  "overview_top_exchange": "Largest: {exchange} ({count})",
+  "page_desc_dashboard": "Start, watch and stop data fetching on the server.",
+  "page_desc_earning_scan": "Earnings results per ticker, newest scan first.",
+  "page_desc_export": "CSV and ZIP exports of the fetched bars.",
+  "page_desc_gold": "Gold price, AI analysis and the server gold job.",
+  "page_desc_history": "Every stored fetch result. Open one to see its bars.",
+  "page_desc_home": "Symbols the server tracks and the state of this build.",
+  "page_desc_portfolio": "Open positions and trade history per portfolio.",
+  "page_desc_radar_summary": "Radar rounds computed on the server from the CSV data.",
+  "page_desc_settings": "Server settings, TradingView login and your password.",
+  "page_desc_stock_radar": "Formula scans per ticker, newest first.",
+  "page_desc_watchlist": "Tickers grouped in lists. Add, rename or remove them here.",
+  "password_changed": "Password changed — other sessions were signed out",
+  "password_confirm": "Repeat the new password",
+  "password_current": "Current password",
+  "password_hint": "Changing it signs out every other session (other browsers and devices).",
+  "password_mismatch": "The two new passwords differ",
+  "password_new": "New password",
+  "pf_add_description": "Records a buy or sell; a new portfolio name creates the portfolio.",
+  "pf_add_title": "Add trade",
+  "pf_col_cost": "Cost",
+  "pf_remove_confirm": "Delete {symbol}",
+  "pf_remove_details": "Every trade of {symbol} in the portfolio \"{port}\" will be deleted for good. This cannot be undone.",
+  "pf_remove_title": "Remove symbol from portfolio",
+  "pf_rename_description": "Gives the portfolio \"{port}\" a new name.",
+  "pf_rename_title": "Rename portfolio",
+  "pf_stat_cost": "Total cost",
+  "pf_stat_ports": "Portfolios",
+  "pf_stat_positions": "Open positions",
+  "pf_tab_positions": "Positions ({count})",
+  "picker_filter": "Filter symbols",
+  "picker_from_list": "Pick from list",
+  "portfolio_cost": "Total cost {cost}",
+  "portfolio_trades": "Trade history ({count})",
+  "radar_delete": "Delete this round",
+  "radar_delete_confirm": "Delete {stamp}",
+  "radar_delete_details": "Round {stamp} (digest and all tables) will be deleted from the database for good. This cannot be undone.",
+  "radar_new_record": "Force a new record (do not reuse a round with the same data)",
+  "radar_round_meta": "Saved {created} · breadth {breadth} stocks · {kill}",
+  "radar_round_title": "Round {stamp}",
+  "radar_rounds_title": "Past rounds",
+  "radar_run": "Run a radar round",
+  "radar_run_details": "Computes a radar round on the server from the latest CSV data for {tfs}. If the data matches an earlier round, that round is reused.",
+  "radar_run_details_new": "Computes a radar round on the server from the latest CSV data for {tfs} and always saves it as a new round.",
+  "radar_run_hint": "Uses the latest CSV data on the server.",
+  "radar_run_started": "Status: {status}",
+  "radar_status": "Status: {status} {phase} {message}",
+  "radar_tf_title": "Data per timeframe",
+  "register_hint": "This server has a single user: once created, registration closes.",
+  "register_submit": "Create account and sign in",
+  "register_title": "Create the first account",
+  "runs_title": "Past runs",
+  "scan_description": "Pick tickers, formulas and timeframes, then start.",
+  "scan_details": [
+    {
+      "declarations": [
+        "input count",
+        "local countPlural = count: plural"
+      ],
+      "selectors": [
+        "countPlural"
+      ],
+      "match": {
+        "countPlural=one": "Fetches {count} symbol × {tfs} (about {calls} requests) for {formulas}, then saves the result to history. May take several minutes.",
+        "countPlural=*": "Fetches {count} symbols × {tfs} (about {calls} requests) for {formulas}, then saves the result to history. May take several minutes."
+      }
+    }
+  ],
+  "scan_formulas": "Formulas",
+  "scan_mode": "Mode",
+  "scan_mode_ai": "AI analysis (paid)",
+  "scan_mode_logic": "Raw data, no AI",
+  "scan_start": "Start scan",
+  "scan_title": "New scan",
+  "search_label": "Search",
+  "settings_auto_skip": "Auto-run skip window",
+  "settings_auto_skip_hint": "Auto runs skip a symbol whose stored data is newer than this.",
+  "settings_destinations": "Report destinations",
+  "settings_destinations_hint": "Where finished reports are sent.",
+  "settings_password": "Password",
+  "settings_tab_general": "General",
+  "settings_timezone": "Display timezone",
+  "settings_timezone_hint": "Times on every page are shown in this zone.",
+  "settings_tv": "TradingView",
+  "settings_tv_hint": "How the server signs in to TradingView.",
+  "sidebar_collapse": "Collapse sidebar",
+  "sidebar_expand": "Expand sidebar",
+  "sidebar_open": "Open menu",
+  "state_empty": "No data",
+  "state_error": "Could not load the data",
+  "state_loading": "Loading…",
+  "stock_radar_summary": "{symbols} tickers · {timeframes} · {formulas}",
+  "symbols_missing_exchange": "Missing exchange: {symbols}",
+  "symbols_total": [
+    {
+      "declarations": [
+        "input count",
+        "local countPlural = count: plural"
+      ],
+      "selectors": [
+        "countPlural"
+      ],
+      "match": {
+        "countPlural=one": "{count} ticker ({build} from the build · {extra} added from the database)",
+        "countPlural=*": "{count} tickers ({build} from the build · {extra} added from the database)"
+      }
+    }
+  ],
+  "table_next": "Next page",
+  "table_no_results": "No matching rows",
+  "table_prev": "Previous page",
+  "table_range": "{from}–{to} of {total}",
+  "table_rows_per_page": "Rows per page",
+  "table_search_placeholder": "Search…",
+  "theme_to_dark": "Switch to dark theme",
+  "theme_to_light": "Switch to light theme",
+  "toast_dismiss": "Dismiss",
+  "toast_region": "Notifications",
+  "trade_buy": "Buy",
+  "trade_sell": "Sell",
+  "tv_mode_1": "Mode 1: user + password",
+  "tv_mode_2": "Mode 2: token only",
+  "tv_mode_3": "Mode 3: classic",
+  "tv_mode_confirm": "The server switches to {mode} and clears its cached TradingView login.",
+  "tv_mode_confirm_button": "Change mode",
+  "tv_mode_confirm_title": "Change the login mode?",
+  "tv_mode_hint": "Changing the mode clears the server's cached login.",
+  "tv_mode_label": "Login mode",
+  "tv_test_description": "Checks that the server can reach TradingView and read bars.",
+  "tv_test_run": "Run test",
+  "tv_test_title": "TradingView connection test",
+  "tv_test_verdict": "{verdict} ({passed}/{total})",
+  "tv_token_active": "Token active, expires in {minutes} min",
+  "tv_token_expired": "Token expired",
+  "tv_token_input": "New token",
+  "tv_token_none": "No token set",
+  "tz_invalid": "The offset must be a whole number in range.",
+  "tz_label": "Label",
+  "tz_offset": "UTC offset (minutes, {min}..{max})",
+  "tz_use_browser": "Use this browser's zone",
+  "user_menu": "Account",
+  "user_menu_signed_in": "Signed in",
+  "version_autostart": "Starts on boot",
+  "version_badge": "v{version} · {commit}",
+  "version_built": "Built",
+  "version_job": "Auto job",
+  "version_job_value": "{phase} · round {round}/{total}",
+  "version_label": "Version",
+  "watchlist_all": "All ({count})",
+  "watchlist_list_count": "{list} ({count})",
+  "watchlist_search_placeholder": "Ticker or name",
+  "wl_add_description": "Adds a ticker to a list; a new list name creates the list.",
+  "wl_add_title": "Add symbol",
+  "wl_remove_confirm": "Remove {symbol}",
+  "wl_remove_details": "{symbol} will be removed from the list \"{list}\" only. Fetched price history is kept.",
+  "wl_remove_title": "Remove symbol from list",
+  "wl_rename_description": "Gives the list \"{list}\" a new name.",
+  "wl_rename_title": "Rename list",
+  "yes": "Yes"
+}

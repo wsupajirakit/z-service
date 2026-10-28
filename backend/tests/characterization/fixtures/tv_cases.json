@@ -1,0 +1,96 @@
+{
+ "recorded_note": "raw tvDatafeed frames captured before process_symbol mutates them",
+ "frozen_now_et": "2026-10-24T12:42:15-04:00",
+ "cases": [
+  {
+   "name": "tv_spy_1h",
+   "symbol": "SPY",
+   "exchange": "AMEX",
+   "interval": "1h",
+   "extended": true,
+   "rows": 40,
+   "bars": 300,
+   "index_tz": "None",
+   "dtypes": {
+    "symbol": "str",
+    "open": "float64",
+    "high": "float64",
+    "low": "float64",
+    "close": "float64",
+    "volume": "float64"
+   }
+  },
+  {
+   "name": "tv_spy_4h",
+   "symbol": "SPY",
+   "exchange": "AMEX",
+   "interval": "4h",
+   "extended": true,
+   "rows": 40,
+   "bars": 1200,
+   "index_tz": "None",
+   "dtypes": {
+    "symbol": "str",
+    "open": "float64",
+    "high": "float64",
+    "low": "float64",
+    "close": "float64",
+    "volume": "float64"
+   }
+  },
+  {
+   "name": "tv_spy_1d",
+   "symbol": "SPY",
+   "exchange": "AMEX",
+   "interval": "1d",
+   "extended": false,
+   "rows": 40,
+   "bars": 300,
+   "index_tz": "None",
+   "dtypes": {
+    "symbol": "str",
+    "open": "float64",
+    "high": "float64",
+    "low": "float64",
+    "close": "float64",
+    "volume": "float64"
+   }
+  },
+  {
+   "name": "tv_spy_1w",
+   "symbol": "SPY",
+   "exchange": "AMEX",
+   "interval": "1w",
+   "extended": false,
+   "rows": 40,
+   "bars": 300,
+   "index_tz": "None",
+   "dtypes": {
+    "symbol": "str",
+    "open": "float64",
+    "high": "float64",
+    "low": "float64",
+    "close": "float64",
+    "volume": "float64"
+   }
+  },
+  {
+   "name": "tv_btcusdt_1h",
+   "symbol": "BTCUSDT",
+   "exchange": "BINANCE",
+   "interval": "1h",
+   "extended": false,
+   "rows": 40,
+   "bars": 300,
+   "index_tz": "None",
+   "dtypes": {
+    "symbol": "str",
+    "open": "float64",
+    "high": "float64",
+    "low": "float64",
+    "close": "float64",
+    "volume": "float64"
+   }
+  }
+ ]
+}

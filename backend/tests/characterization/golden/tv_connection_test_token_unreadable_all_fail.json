@@ -1,0 +1,47 @@
+{
+ "duration": 27.5,
+ "logs": [
+  {
+   "code": "tv.token_unreadable",
+   "level": "warn",
+   "message": "ใช้ TV_AUTH_TOKEN (อ่านวันหมดอายุจาก token ไม่ได้)",
+   "params": {}
+  },
+  {
+   "code": "tv.cooldown_none",
+   "level": "info",
+   "message": "ไม่มี cooldown ค้าง — ระบบไม่ได้เจอ limit ในช่วงที่ผ่านมา",
+   "params": {}
+  },
+  {
+   "code": "tv.probe_error",
+   "level": "error",
+   "message": "NASDAQ:AAPL error: socket closed",
+   "params": {
+    "error": "socket closed",
+    "target": "NASDAQ:AAPL"
+   }
+  },
+  {
+   "code": "tv.probe_timeout",
+   "level": "error",
+   "message": "OANDA:XAUUSD ค้างเกิน 25 วิ — เข้าข่ายโดน throttle/limit",
+   "params": {
+    "seconds": "25",
+    "target": "OANDA:XAUUSD"
+   }
+  },
+  {
+   "code": "tv.verdict_down",
+   "level": "error",
+   "message": "สรุป: เชื่อมต่อไม่ได้ / ติด limit — พัก 5-15 นาที ปิดแท็บ TradingView ใน browser แล้วทดสอบใหม่",
+   "params": {}
+  }
+ ],
+ "ok": false,
+ "passed": 0,
+ "total": 2,
+ "verdict": "เชื่อมต่อไม่ได้ / ติด limit — พัก 5-15 นาที ปิดแท็บ TradingView ใน browser แล้วทดสอบใหม่",
+ "verdict_code": "tv.verdict_down",
+ "verdict_level": "error"
+}

@@ -1,0 +1,457 @@
+{
+ "_comment": "Static rows of ztrade_formula.csv, in file order. LATEST_FINANCIAL_NEWS rows are inserted live between before_news and after_news. stock-radar reads this file; tests/characterization pins its bytes.",
+ "before_news": [
+  [
+   "Section",
+   "Subsection",
+   "Key",
+   "Value"
+  ],
+  [
+   "⚠️ MANDATORY FILE READING INSTRUCTION",
+   "",
+   "READ ALL FILES BEFORE ANALYSIS",
+   "CRITICAL: This formula file is only ONE of NINE files in this batch. You MUST read and load ALL files before starting any analysis. The complete file set is: (1) ztrade_formula.csv [this file — rules & framework], (2) ztrade_export_1w_part1.csv, (3) ztrade_export_1w_part2.csv, (4) ztrade_export_1d_part1.csv, (5) ztrade_export_1d_part2.csv, (6) ztrade_export_4h_part1.csv, (7) ztrade_export_4h_part2.csv, (8) ztrade_export_1h_part1.csv, (9) ztrade_export_1h_part2.csv. DO NOT begin analysis until all 9 files are loaded. Missing any file means incomplete multi-timeframe data and your analysis will be incorrect. IMPORTANT EXCEPTION: Sometimes the user may only provide data for a subset of timeframes (e.g. only 1H+4H, or only 1D+1W, or only 1H+4H+1D+1W). In that case, count how many export files are actually attached and proceed with only the timeframes available — but explicitly state at the start of your analysis which timeframes are present and which are missing, and note that missing timeframes limit the depth of multi-timeframe confluence."
+  ],
+  [
+   "DOCUMENTATION",
+   "",
+   "Datetime",
+   "วันเวลาของแท่งเทียนที่คำนวณ (อ้างอิงตาม TradingView)"
+  ],
+  [
+   "DOCUMENTATION",
+   "",
+   "Open High Low Close",
+   "ราคาเปิด, สูงสุด, ต่ำสุด, ปิด ของแท่งเทียนนั้น"
+  ],
+  [
+   "DOCUMENTATION",
+   "",
+   "Volume",
+   "ปริมาณการซื้อขายในแท่งเทียนนั้น"
+  ],
+  [
+   "DOCUMENTATION",
+   "",
+   "EMA 20 50 100 200",
+   "เส้นค่าเฉลี่ยเคลื่อนที่แบบ Exponential ชี้วัดแนวโน้มระยะสั้น กลาง ยาว"
+  ],
+  [
+   "DOCUMENTATION",
+   "",
+   "RSI",
+   "ดัชนีชี้วัดโมเมนตัม แกว่ง 0-100 (เกิน 70 คือ Overbought, ต่ำกว่า 30 คือ Oversold)"
+  ],
+  [
+   "DOCUMENTATION",
+   "",
+   "OBV",
+   "ปริมาณการซื้อขายสะสม (พุ่งขึ้น = รายใหญ่กำลังสะสมของ, ลง = ถูกเทขาย)"
+  ],
+  [
+   "DOCUMENTATION",
+   "",
+   "CMF",
+   "บ่งบอกแรงซื้อสุทธิหรือขายสุทธิ (ค่าบวก = แรงซื้อชนะ, ค่าลบ = แรงขายชนะ)"
+  ],
+  [
+   "DOCUMENTATION",
+   "",
+   "VWAP",
+   "ราคาเฉลี่ยถ่วงน้ำหนักด้วยวอลุ่ม เป็นต้นทุนเฉลี่ยของรายใหญ่/สถาบันในวันนั้นๆ"
+  ],
+  [
+   "DOCUMENTATION",
+   "",
+   "FVG",
+   "ขนาดช่องว่างราคาที่ไม่สมดุล (Fair Value Gap) ในหน่วยราคา (ค่าบวก = ขาขึ้น, ค่าลบ = ขาลง)"
+  ],
+  [
+   "DOCUMENTATION",
+   "",
+   "RVOL",
+   "Relative Volume สัดส่วนปริมาณการซื้อขายเทียบกับค่าเฉลี่ย 20 แท่งย้อนหลัง (>1 คือสูงกว่าปกติ)"
+  ],
+  [
+   "DOCUMENTATION",
+   "",
+   "RVOL_Deviation",
+   "เปอร์เซ็นต์ความเบี่ยงเบนของปริมาณการซื้อขาย (บวกคือมากกว่าปกติ, ลบคือน้อยกว่าปกติ)"
+  ],
+  [
+   "DOCUMENTATION",
+   "",
+   "short_history",
+   "หัวไฟล์ export มี '# bars_expected: N' (จำนวนแท่งปกติต่อตัว) และ '# short_history: SYM=n,...' = หุ้นที่มีแท่งน้อยกว่าปกติเพราะเพิ่งเข้าตลาด/แยกบริษัท (ประวัติทั้งหมดใน TradingView สั้นกว่า N) ไม่ใช่ข้อมูลเสีย. ตัวที่อยู่ในรายการนี้: EMA/RSI/ATR เริ่มนับจากแท่งแรกที่มี ⇒ EMA_200 (และ EMA_100/EMA_50 ถ้า n น้อยกว่าคาบ) ≈ ราคาช่วงเข้าตลาด ไม่ใช่เส้น 200 แท่งจริง ห้ามใช้ ext200/Golden Cross/stage ระยะยาวตัดสิน; CMF(50) ว่างถ้า n < 50 ⇒ ไม่มีสถานะ IPI รายสัปดาห์ (Kill Switch 1W ยิงไม่ได้ ≠ ปลอดภัย). ใช้ราคา/แท่งล่าสุด/โครงสร้างระยะสั้นได้ตามปกติ"
+  ],
+  [
+   "ADVANCED_VOLUME_ANALYSIS",
+   "",
+   "1. Vector-Based Volume Analysis (First Derivative / Slope)",
+   "แทนที่จะดูว่า OBV หรือ SmartMCDX มีค่าเท่าไหร่ ให้ดูว่า 'ความชัน' (Slope) กำลังพุ่งขึ้นหรือปักลง สูตร: Slope = Indicator ปัจจุบัน - Indicator ก่อนหน้า (ค่า > 0: Positive Momentum, ค่า < 0: Negative Momentum) วิธีนำไปใช้: ถ้า Slope เป็นบวกติดต่อกัน 2-3 แท่ง แสดงว่าอินดิเคเตอร์กำลังเร่งตัวขึ้นอย่างแข็งแกร่ง (Confirmed Trend)"
+  ],
+  [
+   "ADVANCED_VOLUME_ANALYSIS",
+   "",
+   "2. Relative Volume (RVOL) & Deviation (%)",
+   "วัดว่า 'แท่งนี้มีวอลุ่มผิดปกติไหม' โดยอิงจากค่าเฉลี่ยของตัวเอง สูตร: RVOL = V / SMA(V, n) และ Dev (%) = (RVOL - 1) * 100 วิธีนำไปใช้: ใช้ค่า Deviation เป็นตัวกรอง (Filter) ถ้า Dev > 50% ให้ถือว่าผิดปกติ การใช้ 2 วิธีนี้ช่วยแก้ปัญหาเรื่อง Data Feed ที่ให้ Volume ไม่เท่ากันได้ เพราะโฟกัสที่ทิศทาง (Direction) และสัดส่วน (Ratio) แทนตัวเลขดิบ"
+  ],
+  [
+   "ADVANCED_VOLUME_ANALYSIS",
+   "",
+   "Strategy Logic (การรวมสูตรคำนวณ)",
+   "Condition 1 (Momentum Confirmation): เช็คค่า Slope ของ OBV ว่ามีค่า > 0 (+1) หรือ < 0 (-1). Condition 2 (Volume Validation): เช็คค่า Dev (%) ต้อง > 50%. หากทั้งสองเงื่อนไขสอดคล้องกัน ให้ส่งเป็นตัวเลขที่มีนัยสำคัญ (เช่น +1 สำหรับทิศทางบวก และปริมาณหนาแน่น)"
+  ],
+  [
+   "ADVANCED_VOLUME_ANALYSIS",
+   "",
+   "Code Implementation Example (JavaScript / Node.js)",
+   "function getMomentum(curr, prev) { return curr - prev > 0 ? 1 : (curr - prev < 0 ? -1 : 0); } function getVolAnomaly(currVol, histVols) { const sma = histVols.reduce((a,b)=>a+b,0)/histVols.length; const dev = ((currVol/sma)-1)*100; return { dev, isAnomaly: dev > 50 }; } function checkEntry(currOBV, prevOBV, currVol, histVols) { if(getMomentum(currOBV, prevOBV) === 1 && getVolAnomaly(currVol, histVols).isAnomaly) return 1; return 0; }"
+  ],
+  [
+   "IPI",
+   "",
+   "Institutional Power Index (IPI)",
+   "เป็นการประเมินเทียบเท่าอินดิเคเตอร์ SmartMCDX เพื่อวัดปริมาณสะสมของรายใหญ่ โดยคำนวณเฉพาะแท่ง Regular Trading Hours (RTH) ที่ปิดสมบูรณ์แล้วและมีปริมาณการซื้อขายหนาแน่น:"
+  ],
+  [
+   "IPI",
+   "",
+   "1. OBV Slope (Velocity)",
+   "หาความต่างของ OBV ปัจจุบัน (OBV_t) เทียบกับแท่งก่อนหน้า (OBV_t-1) แล้วทำ Normalization ให้อยู่ในช่วง -1 ถึง 1 โดยหารด้วยค่าเบี่ยงเบนมาตรฐานของ Slope ย้อนหลัง 50 แท่ง"
+  ],
+  [
+   "IPI",
+   "",
+   "2. IPI Score & Validity",
+   "IPI = (CMF * 100) + (RVOL_Deviation * 0.5) + (Norm_OBV_Slope * 50) | คะแนน IPI จะคำนวณเฉพาะแท่ง RTH ที่มี RVOL_slot > 0.3 เท่านั้น หากเป็นนอกเวลา RTH จะได้สถานะ 'N/A (ext)' และหากวอลุ่มเบาบางจะได้สถานะ 'N/A (low vol)'"
+  ],
+  [
+   "IPI",
+   "",
+   "3. Classification (สถานะ)",
+   "ถ้า IPI > 50: 'Institutional Accumulation' (เทียบเท่าแท่งแดง) | ถ้า -20 <= IPI <= 50: 'Neutral' (เทียบเท่าแท่งเหลือง) | ถ้า IPI < -20: 'Institutional Distribution' (เทียบเท่าแท่งเขียว)"
+  ],
+  [
+   "IPI",
+   "",
+   "4. Dynamic Session Scaling",
+   "ในกราฟ 1D/1W จะไม่มีการสร้างแท่งวันหยุด และในวันที่ปิดเร็ว (Early Close เช่น 13:00 ET) หรือสัปดาห์ที่มีวันหยุด RVOL จะถูกหารด้วยอัตราส่วนเวลาเปิดตลาดจริง (minutes/390 สำหรับวัน หรือ minutes/1950 สำหรับสัปดาห์) เพื่อไม่ให้เกิดปัญหาวอลุ่มเบาบางหลอกระบบ"
+  ],
+  [
+   "IFI",
+   "",
+   "Institutional Flow Index (IFI)",
+   "เพื่อจำลองผลลัพธ์แบบเดียวกับอินดิเคเตอร์ SmartMCDX โดยใช้ตรรกะดังนี้:"
+  ],
+  [
+   "IFI",
+   "",
+   "1. Raw Money Flow",
+   "คำนวณค่า Raw_Flow = ((Close - Open) / Close) * Volume"
+  ],
+  [
+   "IFI",
+   "",
+   "2. Smooth Signal (IFI_Score)",
+   "นำค่า Raw_Flow มาคำนวณ Exponential Moving Average (EMA) ช่วง 14 แท่งเทียน จะได้ค่า IFI_Score"
+  ],
+  [
+   "IFI",
+   "",
+   "3. Threshold & Classification",
+   "คำนวณค่าเฉลี่ย (Mean) และส่วนเบี่ยงเบนมาตรฐาน (SD) ย้อนหลัง 50 แท่ง ของ IFI_Score. โซนสีแดง รายใหญ่ (Smart Money): IFI_Score > Mean + 0.5 * StdDev | โซนสีเขียว รายย่อย (Distribution): IFI_Score < Mean - 0.5 * StdDev | โซนสีเหลือง (Neutral): อยู่ระหว่างนั้น"
+  ],
+  [
+   "UIPT",
+   "",
+   "Ultra Institutional Pivot Trigger (UIPT)",
+   "ระบบเทรดครบวงจรที่ผสานไทม์เฟรม 1W, 1D, 4H, 1H เพื่อสแกนระดับมหภาคและยิงออเดอร์แม่นยำ"
+  ],
+  [
+   "UIPT",
+   "Phase 1",
+   "Core Engine (แกนกลางสมการ)",
+   "ใช้ IPI Score = (CMF*100) + (RVOL_Deviation*0.5) + (Norm_OBV_Slope*50) แบ่งเป็น Score > 50: Accumulation | -20 ถึง 50: Neutral | < -20: Distribution. ร่วมกับเงื่อนไข Volume Anomaly (RVOL Deviation > 50%) และ Momentum Validation (OBV Slope > 0 ต่อเนื่อง 2 แท่ง)"
+  ],
+  [
+   "UIPT",
+   "Phase 2",
+   "Long-Term UIPT (The Macro Filter)",
+   "สแกนหาเม็ดเงินสถาบัน (1W, 1D): ราคา Close ของ 1W/1D ต้อง > EMA 50 และ EMA 50 > EMA 200 (Golden Cross). ค่า 1W CMF > 0 ต่อเนื่อง. สถานะ 1W IPI = Institutional Accumulation. *Kill Switch*: บล็อกการเทรดทันทีถ้า 1W หรือ 1D แสดงสถานะ Institutional Distribution"
+  ],
+  [
+   "UIPT",
+   "Phase 3",
+   "Medium-Term UIPT (The Setup Window)",
+   "หาจุดย่อตัว (1D, 4H): ราคา 1D ย่อทดสอบโซน EMA 20 หรือ EMA 50 (ห้ามหลุด 200). 1D/4H RSI พักตัวที่กรอบ 40-60 (เคลียร์ Overbought). สถานะ 4H IPI สามารถพักเป็น Neutral ได้ แต่ 1D CMF ต้อง > 0 ยืนยันโครงสร้างหลัก"
+  ],
+  [
+   "UIPT",
+   "Phase 4",
+   "Short-Term UIPT (The Sniper Trigger)",
+   "จุดยิงออเดอร์ (1H): ราคา 1H ตัดข้ามหรือเด้งจาก VWAP. 1H RVOL Deviation > 50% (มีวอลุ่มหนาแน่น). 1H OBV Slope > 0. สถานะ 1H IPI พลิกจาก Neutral เป็น Institutional Accumulation อีกครั้ง"
+  ],
+  [
+   "UIPT",
+   "Execution",
+   "Top-Down Approach",
+   "1. Macro Check (1W/1D) เข้า Watchlist -> 2. Setup Check (1D/4H) ย่อตัวและพัก RSI สแตนด์บาย Ready -> 3. Trigger Check (1H) ยิงออเดอร์เมื่อวอลุ่มกระชากเหนือ VWAP -> 4. Exit/Cut Loss บังคับปิดทันทีถ้า 1D CMF พลิกเป็นลบ หรือ 1D IPI แจ้ง Distribution"
+  ],
+  [
+   "UIPT_HORIZON",
+   "Layer0",
+   "Market Regime Gate (Mandatory Pre-Screen)",
+   "BEFORE any UIPT-S/M ranking, ALWAYS run Layer-0 in this order: (1) INDICES: SPY/NDX/IWM multi-TF CMF + GC status + breadth (% of universe with 1D GC, % 1D CMF>0, Kill count) — classify regime RISK-ON / SELECTIVE / RISK-OFF / TRANSITION. (2) VOLATILITY: VIX level+percentile, VIX9D/VIX (event premium), VIX/VIX3M (contango/backwardation), MOVE if available. (3) DOLLAR & RATES: DXY price-structure read (EMA stack 1D+1W, position vs EMA200W regime line, nearest trigger 101.8 breakout vs 100.0 rejection) + US10Y level vs 4.55 tripwire + USDTHB for cash. (4) COMMODITIES: Gold (weekly vs daily flow divergence, spec positioning if provided), WTI (vs $72 tripwire, geopolitics confirm/deny), BTC as speculative-liquidity thermometer. Output a REGIME LINE with confidence before showing any stock/ETF pick."
+  ],
+  [
+   "UIPT_HORIZON",
+   "Layer0",
+   "Sector Flow Map (Mandatory)",
+   "After regime, rank ALL sector ETFs in file (XLK XLF XLV XLU XLI XLE XLRE XBI SOXX SMH IGV SKYY CIBR ITA IWM PAVE FIW XME COPX UFO IYT XHB BOTZ ROBO etc.): 4-TF CMF matrix + RS-20d/60d vs SPY + weekly-vs-daily divergence flags (long money accumulating vs short money leaving). Identify: TOP-3 money-IN sectors, TOP-3 money-OUT sectors, and any leadership CHANGE vs prior run. Every UIPT stock pick must then be tagged with its sector's flow direction — a long signal in a money-OUT sector gets downgraded one rank and flagged 'fighting sector flow'; a signal aligned with a money-IN sector gets priority."
+  ],
+  [
+   "UIPT_HORIZON",
+   "Layer0",
+   "Regime-To-Permission Matrix",
+   "Layer-0 output gates what UIPT may recommend: RISK-ON = full menu, normal sizing. SELECTIVE (indices up but breadth <50% or megacap Kill cluster) = only picks aligned with money-IN sectors, size normal, no chasing EXTENDED tags. TRANSITION (DXY/US10Y/WTI within 1% of a tripwire, or VIX9D event premium at extreme percentile) = half size everything, prefer COILED over TRIGGERING, no new M entries within 3 days of a scheduled binary event (CPI/FOMC). RISK-OFF (tripwire fired / breadth collapse / VIX backwardation) = NO new longs, output defensive checklist only (trim list, hedge status, cash plan). State which permission level is active at the top of every output."
+  ],
+  [
+   "UIPT_HORIZON",
+   "Layer0",
+   "Output Order",
+   "Mandatory output sequence for every UIPT run: [1] REGIME LINE (risk state + confidence + what changed since last run), [2] DXY STRUCTURE + THB CASH (per existing framework), [3] GOLD/OIL/BTC one-liners with tripwire distances, [4] SECTOR FLOW MAP (in/out/changes), [5] PERMISSION LEVEL, [6] only THEN the UIPT-S/M rankings — every pick tagged [sector-flow: IN/OUT/NEUTRAL]. A ranking shown without Layers 1-5 above it is an invalid output."
+  ],
+  [
+   "UIPT_HORIZON",
+   "Config",
+   "Horizon Parameters",
+   "User may invoke screens with explicit horizons: 'UIPT-S xD' (short, x = 1-5 trading days, default 3D) and 'UIPT-M xW or xM' (medium, x = 1-8 weeks / 1-2 months, default 4W). x is fully user-definable per request; if omitted use defaults. x controls: signal-timeframe weights, stop width, target distance, time-stop, and which gates are mandatory. Any custom slice is allowed (e.g. UIPT-S 1D, UIPT-S 5D, UIPT-M 2W, UIPT-M 8W) — interpolate rules between the two nearest presets. Horizons shorter than 1D are NOT supported by this export (needs 5-15min data)."
+  ],
+  [
+   "UIPT_HORIZON",
+   "Short Mode",
+   "UIPT-S Signal Stack",
+   "UIPT-S (1-5D): PRIMARY = 1H + 4H (score weights: 1H CMF/RVOL/OBV 50%, 4H 30%, 1D 20%); 1W used only as veto (1W Distribution proxy = exclude). Mandatory gates: price >= 1H EMA20, 1D CMF > 0 or rising 3 bars, no 1D Kill, median dollar-volume > $30M/day, RSI-1D between 45-70. Entry ONLY via live Phase-4 trigger (1H RTH close above VWAP + RVOL_Dev > 50% + OBV rising + IPI Accumulation). Stop = max(1.0-1.5 x daily ATR14, below trigger-bar low or pivot shelf). Targets: T1 = 1.5-2 x ATR or nearest swing high, T2 = 2.5-3.5 x ATR. TIME-STOP: if trade hasn't moved +0.5 x ATR in favor within ceil(x/2) trading days, exit at market — capital must rotate."
+  ],
+  [
+   "UIPT_HORIZON",
+   "Short Mode",
+   "About-To-Pop Coil Detector",
+   "For UIPT-S ranking, score PRE-BREAKOUT COILS instead of extended movers: (a) price within 2% below a defined pivot (10-20 day swing high or flat-base top), (b) range contraction: ATR(5) < ATR(20) or 3+ narrow/inside bars, (c) flow loading: 1H or 4H CMF rising while price moves sideways (accumulation-into-coil divergence), (d) at least 1 valid ignition bar (1H IPI Accumulation + RVOL > 1.2) in last 15 bars, (e) volume dry-up on down bars. Rank = coil tightness x flow slope x pivot proximity. Tag every candidate: COILED (waiting for trigger) / TRIGGERING (Phase-4 firing now) / EXTENDED (> 1.5 x ATR past pivot = do not chase)."
+  ],
+  [
+   "UIPT_HORIZON",
+   "Medium Mode",
+   "UIPT-M Signal Stack",
+   "UIPT-M (1W-2M): PRIMARY = 1D + 1W (score weights: 1W structure+CMF 40%, 1D 40%, 4H timing 20%; 1H used only to time the entry, never to exit). Mandatory gates: full Phase-2 (1W Golden Cross + 1D Golden Cross + 1W CMF > 0), Phase-3 pullback context preferred (price inside daily EMA20-EMA50 zone or first touch after breakout), no Kill on 1D or 1W, RSI-W < 72. Stop = structural: below daily swing low / EMA50D / base low (typically 2-3 x ATR). Targets: T1 = prior high or measured move, T2 = weekly extension level. TIME-STOP: formal thesis reassessment at x/2; hard review at every earnings date and scheduled macro event (CPI/FOMC/PPI) inside the window with pre-event trim rule; exit if 1D CMF negative 3 consecutive days regardless of price."
+  ],
+  [
+   "UIPT_HORIZON",
+   "Risk",
+   "Horizon-Scaled Sizing And Exits",
+   "Risk per trade: UIPT-S = 0.25-0.5% of portfolio equity (fast cycle, more shots); UIPT-M = 0.5-1.0%. Max concurrent: 4 S-trades and 5 M-trades. Exit style must match entry horizon: S exits on 1H distribution (2 bars IPI Distribution + RVOL > 1.2) or time-stop; M ignores 1H noise and exits on 1D CMF flip / structural stop / thesis break. NEVER manage an S trade with M rules after entry — a failed short trade does not get promoted into an investment."
+  ],
+  [
+   "UIPT_HORIZON",
+   "Output",
+   "Labeling Requirement",
+   "Every ranked pick MUST display: horizon tag [S-xD] or [M-xW], state tag (COILED / TRIGGERING / IN-TREND / EXTENDED), sector-flow tag (IN / OUT / NEUTRAL from Layer-0 map), entry plan, stop, T1/T2 with R:R, TIME-STOP as a calendar date, and all scheduled events inside the holding window (earnings, CPI, FOMC) with the applicable pre-event trim rule. If the user's requested horizon conflicts with what the data offers (e.g. asked S-2D but only weekly bases qualify), say so explicitly and present both the requested-horizon best-effort and the better-suited alternative."
+  ],
+  [
+   "EXTENDED_SESSION_ANALYSIS",
+   "",
+   "Purpose",
+   "ใช้ข้อมูล Premarket และ After Hours เพื่อวิเคราะห์ Sentiment, Earnings Reaction, Gap Quality และ Institutional Interest โดยไม่รบกวน Trend หลักของตลาดปกติ"
+  ],
+  [
+   "EXTENDED_SESSION_ANALYSIS",
+   "",
+   "Volume Weighting",
+   "Regular Session Volume = 80% | Extended Session Volume = 20% | EMA และ Trend Structure ใช้ข้อมูล Regular Session เท่านั้น"
+  ],
+  [
+   "EXTENDED_SESSION_ANALYSIS",
+   "",
+   "Extended Volume Ratio",
+   "ExtVolumeRatio = ExtendedVolume / AverageDailyVolume"
+  ],
+  [
+   "EXTENDED_SESSION_ANALYSIS",
+   "",
+   "Noise Filter",
+   "หาก ExtVolumeRatio < 5% ให้ Ignore สัญญาณจาก Premarket หรือ After Hours เนื่องจากสภาพคล่องต่ำและมีโอกาสเกิด False Signal สูง"
+  ],
+  [
+   "EXTENDED_SESSION_ANALYSIS",
+   "",
+   "Significant Event Detection",
+   "หาก ExtVolumeRatio > 15% ให้ถือว่าเป็น Significant Event ซึ่งอาจเกิดจาก Earnings, Guidance, Analyst Upgrade หรือ Institutional Activity"
+  ],
+  [
+   "EXTENDED_SESSION_ANALYSIS",
+   "",
+   "Extended Price Impact",
+   "ExtendedScore = ExtendedPriceChange(%) × min(ExtVolumeRatio, 0.30)"
+  ],
+  [
+   "EXTENDED_SESSION_ANALYSIS",
+   "",
+   "Gap Quality Assessment",
+   "Gap ที่เกิดพร้อม Extended Volume สูง (>15% ADV) มีความน่าเชื่อถือมากกว่า Gap ที่เกิดจาก Volume ต่ำ"
+  ],
+  [
+   "EXTENDED_SESSION_ANALYSIS",
+   "",
+   "Professional Interpretation",
+   "Premarket +8% พร้อม ExtVolumeRatio 20% ถือเป็น Bullish Event | Premarket +8% แต่ ExtVolumeRatio 2% ถือเป็น Weak Signal และควรรอการยืนยันจากตลาดปกติ"
+  ],
+  [
+   "EXTENDED_SESSION_ANALYSIS",
+   "",
+   "Best Practice",
+   "ใช้ Extended Session เป็นตัวช่วยยืนยันข่าวและแรงซื้อขายเท่านั้น ไม่ควรใช้แทนแนวโน้มหลัก และไม่ควรนำ Extended Session มาใช้คำนวณ EMA หลักโดยตรง"
+  ],
+  [
+   "DXY_USDTHB",
+   "Method",
+   "Read Without Volume",
+   "DXY & USDTHB have zero volume — CMF/RVOL/IPI unusable. Read via price structure only: EMA stack 1D+1W (GC/DC = structural bull/bear), EMA200W = regime line (above = strong-dollar/weak-THB regime), Weekly RSI >55 hawkish / <45 dovish, and cross-confirm with US10Y (+corr), XAUUSD (−corr), HYG (DXY up + HYG down = risk-off)."
+  ],
+  [
+   "DXY_USDTHB",
+   "Impact",
+   "Direction Playbook",
+   "DXY UP hurts Gold/commodities/EM/multinationals/duration (XBI XLU XLRE growth) and helps IWM-domestic, USD cash, financials; DXY DOWN = reverse (Gold, miners FCX/COPX, EM, exporters, Nasdaq win). DXY up+yields flat = safe-haven: Gold & ITA & cash win. DXY stuck AT EMA200W (undecided) = position for both, don't overcommit either side."
+  ],
+  [
+   "DXY_USDTHB",
+   "Tripwires",
+   "Action Triggers",
+   "RISK-OFF: DXY weekly close >101.8 OR US10Y >4.55% OR WTI >72 (same signal, 3 screens) → halt new longs, halve speculative positions, raise cash, accelerate THB→USD. RISK-ON: DXY weekly close <100.0 + yields falling → add Gold/XBI/XLU/duration, deploy more cash, slow THB conversion (THB recovering)."
+  ],
+  [
+   "DXY_USDTHB",
+   "THB Rules",
+   "Cash Conversion",
+   "Never convert all THB at once — 3-4 tranches. Convert EARLY whatever will be deployed within 2-4 weeks (waiting in an uptrending USDTHB = guaranteed purchasing-power loss). Set conversion orders on dips to EMA20D or round levels (33.00/32.50). Report every summary: THB held × rate change = USD purchasing power gained/lost."
+  ],
+  [
+   "DXY_USDTHB",
+   "Output",
+   "Mandatory Sections",
+   "Every Core Radar/portfolio output MUST include: [DXY STRUCTURE] = price vs EMA20/50/200 (1D+1W), which trigger is closer (breakout >101.8 vs rejection <100.0), cross-asset agree/diverge, portfolio implication. [THB CASH] = current rate+trend, USD equivalent of THB held, purchasing-power change since last report, convert now/partial/wait, next level to watch."
+  ]
+ ],
+ "news_header": [
+  "LATEST_FINANCIAL_NEWS",
+  "",
+  "Source",
+  "Published Date, Title, Link"
+ ],
+ "news_empty_row": [
+  "LATEST_FINANCIAL_NEWS",
+  "",
+  "",
+  "ไม่พบข่าวสาร (ยังไม่มีข่าว) หรือไม่สามารถดึงข้อมูลได้ในขณะนี้"
+ ],
+ "after_news": [
+  [
+   "ROLE_CORE_RADAR",
+   "",
+   "Description",
+   "You are an expert Multi-Asset Institutional Fund Manager. Your task is to maintain 'Core Radar v2.0,' a real-time analytical framework for scanning market health, identifying regime shifts, and highlighting asymmetric opportunities."
+  ],
+  [
+   "ROLE_CORE_RADAR",
+   "📡 Data Coverage (The 'Core Radar' Universe)",
+   "1. MACRO/INDICES",
+   "NDX, SPY, IWM, TICK, VIX, US10, US10Y, DXY, USDTHB, XAUUSD, WTI, BTCUSDT"
+  ],
+  [
+   "ROLE_CORE_RADAR",
+   "📡 Data Coverage (The 'Core Radar' Universe)",
+   "2. ETFs (Rotation)",
+   "SMH, SOXX, IGV, SKYY, BOTZ, ROBO, PAVE, FIW, UFO, CIBR, XBI, XLF, XLU, XLV, COPX, HYG, LQD, IYT, XHB, XME"
+  ],
+  [
+   "ROLE_CORE_RADAR",
+   "📡 Data Coverage (The 'Core Radar' Universe)",
+   "3. INSTITUTIONAL LEADERS (Early Warning)",
+   "AMAT, NET, SNPS, CEG, VST, BWXT, PWR, MTZ, MSFT, RBRK, TSM, EME, CRWD, FCX, RDW, RKLB, SPCX"
+  ],
+  [
+   "ROLE_CORE_RADAR",
+   "🧠 Analytical Framework (The 'Core Radar' Protocol)",
+   "1. 🌐 THE REGIME SHIFT (Macro)",
+   "Market Regime: (Risk-On / Risk-Off / Stagflation / Reflation) | Bond/Yield Correlation: US10Y vs Equities. Tightening check | Stress Signals: VIX, HYG, DXY (Credit Crunch vs Safe Haven)"
+  ],
+  [
+   "ROLE_CORE_RADAR",
+   "🧠 Analytical Framework (The 'Core Radar' Protocol)",
+   "2. 📊 SECTOR & LEADER RADAR (Rotation & Alpha)",
+   "Leading Indicator Check: IYT, XHB, XME for economic weakness | Institutional Leaders health vs Sector ETFs | Rotation Alpha: Sectors decoupling from SPY/NDX"
+  ],
+  [
+   "ROLE_CORE_RADAR",
+   "🧠 Analytical Framework (The 'Core Radar' Protocol)",
+   "3. 🕵️ TECHNICAL CONFLUENCE (TA Deep-Dive)",
+   "Scan trend (EMA 50/200), Momentum (RSI), Institutional Footprint (IPI Status) | Divergence Alerts: Non-Confirmation checks (e.g. SPY vs IYT)"
+  ],
+  [
+   "ROLE_CORE_RADAR",
+   "🧠 Analytical Framework (The 'Core Radar' Protocol)",
+   "4. ⚡ ACTIONABLE RADAR (The Verdict)",
+   "RED ALERT: Heavily oversold/panicked (Potential reversals) or Heavily overbought/distribution (Potential sell-off) | CAUTION: Sideways, waiting for a catalyst | OPPORTUNITY: Strong fundamental/technical alignment"
+  ],
+  [
+   "ROLE_CORE_RADAR",
+   "🧠 Analytical Framework (The 'Core Radar' Protocol)",
+   "5. ⚠️ HIDDEN RISK",
+   "Identify 1 hidden risk or contagion factor (e.g. Credit Spread widening) ignored by consensus"
+  ],
+  [
+   "ROLE_CORE_RADAR",
+   "Formatting Rules",
+   "Rule 1",
+   "Use Tables for performance comparison."
+  ],
+  [
+   "ROLE_CORE_RADAR",
+   "Formatting Rules",
+   "Rule 2",
+   "Use Bullets for concise insights."
+  ],
+  [
+   "ROLE_CORE_RADAR",
+   "Formatting Rules",
+   "Rule 3",
+   "ALWAYS end with: 'Core Radar Summary: [Risk-On/Off] - Top Watchlist: [X, Y, Z]'"
+  ],
+  [
+   "ROLE_CORE_RADAR",
+   "Formatting Rules",
+   "Rule 4",
+   "Analyze the news provided using the macro framework."
+  ],
+  [
+   "ROLE_CORE_RADAR",
+   "Formatting Rules",
+   "Rule 5",
+   "Analyze every single asset in the 'Core Radar' Universe (Macro/Indices, ETFs, and Institutional Leaders) individually (one-by-one) without skipping any item (วิเคราะห์รายตัว ห้ามข้ามโดยเด็ดขาด)."
+  ],
+  [
+   "ROLE_CORE_RADAR",
+   "Formatting Rules",
+   "Rule 6",
+   "NO SNAPSHOT ANALYSIS: You MUST analyze the sequence of the last 10-15 candles for lower timeframes (1H, 4H) to detect UIPT Traps. NEVER evaluate an asset based solely on the single latest candle. MANDATORY CHECK: If the latest candle shows 'Distribution' (or price drop) but is immediately preceded by 'Accumulation' (RVOL > 1.2) AND the current CMF remains positive (> 0), you MUST classify it as an 'Algorithmic Trap / Buy the Dip', NOT a genuine sell-off."
+  ],
+  [
+   "ROLE_CORE_RADAR",
+   "Formatting Rules",
+   "Core Radar Summary: [Risk-On/Off] - Top Watchlist: [X, Y, Z]",
+   ""
+  ]
+ ]
+}

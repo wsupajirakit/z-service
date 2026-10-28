@@ -1,0 +1,50 @@
+[
+ {
+  "name": "gold_formula.csv",
+  "sha256": "bf16a61e76436eef935e74ef6d2e17eeafb598a6298fc3e58586db43403d0377"
+ },
+ {
+  "name": "xauusd_1h.csv",
+  "sha256": "549c999a4514366a6db762dfe82aaf22d2ef5c6bea49be6265fa5ac688fe2826"
+ },
+ {
+  "name": "xauusd_4h.csv",
+  "sha256": "4574d20adee33a52fdc4de38c311368761e7e76e465eb109ebe9b6d32fc248fe"
+ },
+ {
+  "name": "xauusd_1d.csv",
+  "sha256": "77b032820c4c8989d7eeeb86aa119bd9da0a3f00fa27034085638ee446eecc81"
+ },
+ {
+  "name": "dxy_4h.csv",
+  "sha256": "393a8e03cf00a02f4c465587e9f6a555c9b648fdeb774a835e6ddb76a149aecc"
+ },
+ {
+  "name": "dxy_1d.csv",
+  "sha256": "d01ec13a128252fb821b2fe2ef9411fa18ee0741057e95a1e9f98ee97da2432e"
+ },
+ {
+  "name": "us10y_1d.csv",
+  "sha256": "dd33d1d0028a1a7b35756b55495c4227d5c772d6bd8d00b70897ac8c07b955df"
+ },
+ {
+  "name": "vix_1d.csv",
+  "sha256": "bd55c5e4a1b49a0c13a0eca03c579601e162d0a41f9d852f01862f512434989d"
+ },
+ {
+  "name": "wti_1d.csv",
+  "sha256": "98eaf493b8ff62158dadc3b11b9a18b30f1bf12bb6dda7e4668244afdb4203bc"
+ },
+ {
+  "name": "btcusdt_1d.csv",
+  "sha256": "0a96b9e5c00a2a0302846e6392f8ca050aada89ec7e8b8e691e60b76bd5a5fcf"
+ },
+ {
+  "name": "spy_1d.csv",
+  "sha256": "910f97631e01208ecb39d2b906d024ad2da236330bbc66246cdcfe6afcc540d6"
+ },
+ {
+  "name": "xagusd_1d.csv",
+  "sha256": "618cd05bee3c4877830cacaac73fe64bc6df6023547202c144562c148ba8e424"
+ }
+]

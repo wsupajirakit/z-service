@@ -1,0 +1,41 @@
+# ---- Node / frontend ----
+node_modules/
+dash/node_modules/
+dash/dist/
+dist/
+
+# ---- Python / backend ----
+backend/venv/
+backend/.venv/
+**/__pycache__/
+*.py[cod]
+
+# ---- Databases (runtime data, not source) ----
+# history.db is no longer tracked — persistence moved to MongoDB Atlas (store.py)
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# ---- Env & secrets (Telegram token etc. live in Coolify env) ----
+.env
+.env.*
+!dash/.env.development
+
+# Google / Gemini service-account keys and other credential files — never commit
+gen-lang-client-*.json
+oauth_client*.json
+client_secret*.json
+*service-account*.json
+*credentials*.json
+*-key.json
+
+# ---- Editor / OS / tooling ----
+.DS_Store
+.claude/settings.local.json
+*.log
+
+# TradingView login token cache (contains a live auth token)
+backend/.tv_token_cache.json
+*.pid

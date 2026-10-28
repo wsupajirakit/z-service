@@ -1,0 +1,11 @@
+{
+ "state": {
+  "folder_link": null,
+  "folder_name": null,
+  "message": "gemini <quota> & down",
+  "status": "error"
+ },
+ "telegram": [
+  "❌ <b>Gold analyze error</b>\ngemini &lt;quota&gt; &amp; down"
+ ]
+}

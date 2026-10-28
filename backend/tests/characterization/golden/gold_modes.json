@@ -1,0 +1,76 @@
+{
+ "exchanges": [
+  "ICMARKETS",
+  "OANDA",
+  "FOREXCOM"
+ ],
+ "modes": [
+  {
+   "files": [
+    "xauusd_5m.csv",
+    "xauusd_15m.csv",
+    "dxy_15m.csv",
+    "us10y_15m.csv",
+    "usdjpy_15m.csv"
+   ],
+   "horizon": "เข้า-ออกภายใน 1–4 ชั่วโมง",
+   "mode": "scalp",
+   "rr_min": 1.5,
+   "tf_roles": "5m = TF สั่งการ (entry/SL) · 15m = TF บริบท (ทิศ/liquidity pools)",
+   "ttl": 60
+  },
+  {
+   "files": [
+    "xauusd_15m.csv",
+    "xauusd_30m.csv",
+    "xauusd_1h.csv",
+    "dxy_1h.csv",
+    "us10y_1h.csv",
+    "vix_1h.csv",
+    "usdjpy_1h.csv",
+    "spy_1h.csv"
+   ],
+   "horizon": "ถือหลักชั่วโมงถึงข้ามวัน (1–4 ชม. ขึ้นไป)",
+   "mode": "intraday",
+   "rr_min": 1.8,
+   "tf_roles": "15m/30m = จังหวะเข้า · 1h = TF สั่งการทิศ",
+   "ttl": 120
+  },
+  {
+   "files": [
+    "xauusd_1h.csv",
+    "xauusd_4h.csv",
+    "xauusd_1d.csv",
+    "dxy_4h.csv",
+    "dxy_1d.csv",
+    "us10y_1d.csv",
+    "vix_1d.csv",
+    "wti_1d.csv",
+    "btcusdt_1d.csv",
+    "spy_1d.csv",
+    "xagusd_1d.csv"
+   ],
+   "horizon": "ถือหลายวันถึงหลายสัปดาห์",
+   "mode": "swing",
+   "rr_min": 2.0,
+   "tf_roles": "1h = จังหวะเข้า · 4h = โครงสร้าง · 1d = TF สั่งการทิศใหญ่",
+   "ttl": 300
+  },
+  {
+   "files": [
+    "xauusd_1d.csv",
+    "xauusd_1w.csv",
+    "dxy_1w.csv",
+    "us10y_1w.csv",
+    "xagusd_1w.csv",
+    "gdx_1d.csv",
+    "gdx_1w.csv"
+   ],
+   "horizon": "ถือหลายสัปดาห์ถึงหลายเดือน",
+   "mode": "position",
+   "rr_min": 2.5,
+   "tf_roles": "1d = จังหวะสะสม · 1w = TF สั่งการเทรนด์หลัก",
+   "ttl": 900
+  }
+ ]
+}

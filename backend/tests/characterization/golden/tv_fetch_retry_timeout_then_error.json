@@ -1,0 +1,34 @@
+{
+ "events": [
+  "wait_turn",
+  "get_hist ext=False -> timeout",
+  "ws closed",
+  "backoff 2",
+  "wait_turn",
+  "get_hist ext=False -> raise",
+  "ws closed",
+  "backoff 4"
+ ],
+ "logs": [
+  [
+   30,
+   "[SYM] Timeout on attempt 1"
+  ],
+  [
+   20,
+   "[SYM] Waiting 2s before next retry..."
+  ],
+  [
+   40,
+   "[SYM] Error on attempt 2: boom"
+  ],
+  [
+   20,
+   "[SYM] Waiting 4s before next retry..."
+  ]
+ ],
+ "outcome": {
+  "error": "Failed after 1 retries. Last error: boom"
+ },
+ "unused": []
+}

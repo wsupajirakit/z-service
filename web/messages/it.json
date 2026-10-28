@@ -1,0 +1,594 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "action_add": "Aggiungi",
+  "action_clear_selection": "Deseleziona",
+  "action_done": "Fatto",
+  "action_download": "Scarica",
+  "action_rename": "Rinomina",
+  "action_running": "In corso…",
+  "action_save": "Salva",
+  "action_select_all": "Seleziona tutti",
+  "action_selected": "Aperto",
+  "action_view": "Apri",
+  "all_lists": "Tutte le liste",
+  "app_tagline": "Servizio dati di mercato",
+  "app_title": "z-service",
+  "auto_description": "Continua a scaricare sul server alla chiusura delle barre, finché non viene fermato.",
+  "auto_force_all_tf": "Tutti e 4 i timeframe a ogni giro (modalità classica)",
+  "auto_missing_exchange": "Borsa sconosciuta per: {list} (saltati)",
+  "auto_skip_label": "Minuti ({min}..{max})",
+  "auto_start_all": "Avvia auto con la lista del server",
+  "auto_start_all_details": "Il server cicla sulla propria lista (build ∪ database), 80 barre, ogni timeframe con barra appena chiusa. Continua anche chiudendo la scheda e avvisa Telegram a ogni giro.",
+  "auto_start_confirm": "Avvia",
+  "auto_start_details_default": [
+    {
+      "declarations": [
+        "input count",
+        "local countPlural = count: plural"
+      ],
+      "selectors": [
+        "countPlural"
+      ],
+      "match": {
+        "countPlural=one": "Cicla su {count} simbolo, {rows} barre, solo i timeframe con barra appena chiusa (più economico). Gira sul server finché non viene fermato.",
+        "countPlural=*": "Cicla su {count} simboli, {rows} barre, solo i timeframe con barra appena chiusa (più economico). Gira sul server finché non viene fermato."
+      }
+    }
+  ],
+  "auto_start_details_legacy": [
+    {
+      "declarations": [
+        "input count",
+        "local countPlural = count: plural"
+      ],
+      "selectors": [
+        "countPlural"
+      ],
+      "match": {
+        "countPlural=one": "Cicla su {count} simbolo, {rows} barre, tutti e 4 i timeframe a ogni giro (più tempo e quota). Gira sul server finché non viene fermato.",
+        "countPlural=*": "Cicla su {count} simboli, {rows} barre, tutti e 4 i timeframe a ogni giro (più tempo e quota). Gira sul server finché non viene fermato."
+      }
+    }
+  ],
+  "auto_start_selected": "Avvia auto con i simboli scelti",
+  "auto_title": "Recupero automatico continuo",
+  "chart_attribution": "Grafici di TradingView Lightweight Charts",
+  "chart_title": "Grafico di esempio (dati fittizi)",
+  "col_action": "Operazione",
+  "col_added": "Aggiunto",
+  "col_asof": "Dati al (ET)",
+  "col_avg_price": "Costo medio",
+  "col_duplicates": "Duplicati",
+  "col_eps": "EPS effettivo / stima",
+  "col_exchange": "Borsa",
+  "col_extended": "Fuori orario",
+  "col_fetched_at": "Ultimo download",
+  "col_interval": "Timeframe",
+  "col_kill_pct": "Kill %",
+  "col_list": "Lista",
+  "col_name": "Nome",
+  "col_next_earnings": "Prossimi utili",
+  "col_note": "Nota",
+  "col_period": "Trimestre",
+  "col_price": "Prezzo",
+  "col_provider": "Fonte",
+  "col_quantity": "Quantità",
+  "col_regime": "Regime",
+  "col_round": "Giro",
+  "col_symbol": "Ticker",
+  "col_symbols": "Ticker",
+  "col_time": "Ora",
+  "col_timeframe": "Timeframe",
+  "confirm_cancel": "Annulla",
+  "confirm_cost": "Attenzione: questa azione usa fornitori AI/dati a pagamento e consuma la quota dell'account.",
+  "custom_description": "Scarica una volta i simboli e i timeframe scelti.",
+  "custom_details": [
+    {
+      "declarations": [
+        "input count",
+        "local countPlural = count: plural"
+      ],
+      "selectors": [
+        "countPlural"
+      ],
+      "match": {
+        "countPlural=one": "Scarica {count} simbolo per {tfs}, {rows} barre, una volta sul server, poi avvisa Telegram.",
+        "countPlural=*": "Scarica {count} simboli per {tfs}, {rows} barre, una volta sul server, poi avvisa Telegram."
+      }
+    }
+  ],
+  "custom_start": "Avvia recupero",
+  "custom_title": "Recupero personalizzato (una volta)",
+  "dest_confirm_off": "I report non saranno più inviati a {name} finché non viene riattivata.",
+  "dest_confirm_off_title": "Disattivare questa destinazione?",
+  "dest_confirm_on": "Dal prossimo giro i report saranno di nuovo inviati a {name}.",
+  "dest_confirm_on_title": "Attivare questa destinazione?",
+  "dest_gold_drive": "Oro → Google Drive",
+  "dest_gold_telegram": "Oro → Telegram",
+  "dest_stock_drive": "Azioni → Google Drive",
+  "dest_stock_telegram": "Azioni → Telegram",
+  "dest_turn_off": "Disattiva",
+  "dest_turn_on": "Attiva",
+  "dialog_close": "Chiudi",
+  "earning_run_summary": [
+    {
+      "declarations": [
+        "input count",
+        "local countPlural = count: plural"
+      ],
+      "selectors": [
+        "countPlural"
+      ],
+      "match": {
+        "countPlural=one": "{count} ticker",
+        "countPlural=*": "{count} ticker"
+      }
+    }
+  ],
+  "earning_scan_description": "Legge l'ultimo trimestre e la prossima data degli utili per ticker.",
+  "earning_scan_details": [
+    {
+      "declarations": [
+        "input count",
+        "local countPlural = count: plural"
+      ],
+      "selectors": [
+        "countPlural"
+      ],
+      "match": {
+        "countPlural=one": "Interroga i fornitori di dati sugli utili (Finnhub, FMP, Alpha Vantage) per {count} simbolo, anche più volte, poi salva il risultato nello storico.",
+        "countPlural=*": "Interroga i fornitori di dati sugli utili (Finnhub, FMP, Alpha Vantage) per {count} simboli, anche più volte ciascuno, poi salva il risultato nello storico."
+      }
+    }
+  ],
+  "earning_scan_done": [
+    {
+      "declarations": [
+        "input count",
+        "local countPlural = count: plural"
+      ],
+      "selectors": [
+        "countPlural"
+      ],
+      "match": {
+        "countPlural=one": "{count} simbolo analizzato",
+        "countPlural=*": "{count} simboli analizzati"
+      }
+    }
+  ],
+  "earning_scan_start": "Avvia scansione utili",
+  "earning_scan_title": "Nuova scansione utili",
+  "enum_mode_auto": "automatico",
+  "enum_mode_custom": "personalizzato",
+  "enum_phase_building": "preparazione",
+  "enum_phase_cooldown": "pausa",
+  "enum_phase_fetching": "recupero dati",
+  "enum_phase_idle": "inattivo",
+  "enum_phase_saving": "salvataggio",
+  "enum_phase_screening": "screening",
+  "enum_status_done": "completato",
+  "enum_status_error": "errore",
+  "enum_status_idle": "inattivo",
+  "enum_status_running": "in esecuzione",
+  "enum_status_stopped": "fermato",
+  "err_ai_bad_response": "L'IA ha restituito una risposta inattesa",
+  "err_ai_failed": "Analisi IA non riuscita: {reason}",
+  "err_ai_http_error": "Il servizio IA ha rifiutato la richiesta (HTTP {status})",
+  "err_ai_invalid_model": "Nome del modello IA non valido",
+  "err_ai_models_failed": "Impossibile caricare l'elenco dei modelli IA",
+  "err_ai_no_api_key": "Il server non ha una chiave IA configurata",
+  "err_ai_unavailable": "Il servizio IA non risponde — riprova",
+  "err_auth_bad_credentials": "Nome utente o password errati",
+  "err_auth_db_error": "Database non raggiungibile",
+  "err_auth_missing_fields": "Inserisci nome utente e password",
+  "err_auth_password_short": "La password deve avere almeno {min} caratteri",
+  "err_auth_password_unchanged": "La nuova password deve essere diversa da quella attuale",
+  "err_auth_rate_limited": "Troppi tentativi — attendi {retry_after} secondi",
+  "err_auth_registration_closed": "La registrazione è chiusa su questo server",
+  "err_auth_user_exists": "Esiste già un utente — registrazione chiusa",
+  "err_auth_wrong_current_password": "La password attuale è errata",
+  "err_drive_bad_id": "Non è un id di Google Drive",
+  "err_drive_folder_required": "Scegli una cartella Drive",
+  "err_drive_name_required": "Inserisci un nome per la cartella",
+  "err_drive_not_configured": "Google Drive non è configurato sul server",
+  "err_drive_outside_root": "L'elemento è fuori dalla cartella Drive consentita",
+  "err_drive_root_delete": "La cartella principale non può essere eliminata",
+  "err_events_bad_body": "Il messaggio non è JSON.",
+  "err_events_bad_headers": "Mancano le intestazioni webhook.",
+  "err_events_bad_signature": "La firma non corrisponde a questo mittente.",
+  "err_events_not_cloudevent": "Il messaggio non è un evento CloudEvents 1.0.",
+  "err_events_stale": "Messaggio troppo vecchio (o orologi diversi).",
+  "err_events_too_large": "Il messaggio è troppo grande.",
+  "err_events_unknown_sender": "Mittente sconosciuto.",
+  "err_exports_invalid_interval": "Timeframe non valido — usa {allowed}",
+  "err_gold_already_running": "Un'analisi dell'oro è già in corso",
+  "err_gold_mode_invalid_exchange": "Exchange non valido — usa {allowed}",
+  "err_gold_mode_invalid_mode": "Modalità non valida — usa {allowed}",
+  "err_gold_mode_no_xau": "Nessun dato XAUUSD da {exchange}",
+  "err_gold_price_failed": "Impossibile leggere il prezzo dell'oro: {reason}",
+  "err_gold_unsupported_source": "Fonte di prezzo non supportata — usa {allowed}",
+  "err_history_hours_range": "Le ore devono essere tra {min} e {max}",
+  "err_history_not_found": "Questo record dello storico non esiste più",
+  "err_http_too_large": "La richiesta è troppo grande (massimo {max} byte)",
+  "err_jobs_already_running": "Un job è già in esecuzione",
+  "err_jobs_no_symbols": "Scegli almeno un simbolo",
+  "err_jobs_no_timeframes": "Scegli un timeframe — {allowed}",
+  "err_jobs_server_list_empty": "L'elenco dei simboli sul server è vuoto",
+  "err_lists_invalid_name": "Nome non valido",
+  "err_lists_rename_failed": "Impossibile rinominare l'elenco",
+  "err_market_fetch_failed": "Recupero da TradingView non riuscito: {reason}",
+  "err_market_invalid_interval": "Timeframe non valido — usa {allowed}",
+  "err_market_no_data": "TradingView non ha restituito dati — controlla simbolo ed exchange",
+  "err_radar_already_running": "Un giro radar è già in corso",
+  "err_radar_invalid_request": "Il giro radar non può partire: {reason}",
+  "err_radar_not_found": "Il giro radar {stamp} non esiste",
+  "err_settings_minutes_range": "I minuti devono essere tra {min} e {max}",
+  "err_settings_offset_range": "Lo scostamento deve essere tra {min} e {max} minuti",
+  "err_tv_invalid_mode": "Modalità di accesso TradingView non valida",
+  "err_tv_token_empty": "Incolla prima un token",
+  "err_tv_token_expired": "Questo token è già scaduto",
+  "error_generic": "Impossibile caricare i dati",
+  "error_http": "Il server ha risposto {status} {detail}",
+  "export_all": "ZIP di tutti e 4 i timeframe",
+  "export_all_symbols": "Tutti i simboli",
+  "export_card_title": "Scarica i dati",
+  "export_check": "{available}/{total} con dati · {missing} mancanti",
+  "export_formula": "File formule",
+  "export_news": "File notizie",
+  "export_part": "CSV parte {part}",
+  "export_zip": "ZIP di questo timeframe",
+  "fetch_description": "Scarica le barre di un simbolo e le mostra qui (non salvate).",
+  "fetch_run": "Scarica",
+  "fetch_title": "Scarica un simbolo",
+  "field_exchange": "Borsa",
+  "field_extended": "Includi orario esteso",
+  "field_interval": "Intervallo",
+  "field_list": "Lista",
+  "field_name": "Nome",
+  "field_new_name": "Nuovo nome",
+  "field_portfolio": "Portafoglio",
+  "field_rows": "Barre",
+  "field_symbol": "Simbolo",
+  "field_symbols_picked": [
+    {
+      "declarations": [
+        "input count",
+        "local countPlural = count: plural"
+      ],
+      "selectors": [
+        "countPlural"
+      ],
+      "match": {
+        "countPlural=one": "{count} selezionato",
+        "countPlural=*": "{count} selezionati"
+      }
+    }
+  ],
+  "field_timeframes": "Timeframe",
+  "gold_analyze": "Analizza con AI",
+  "gold_analyze_details": "Scarica XAUUSD da {exchange} su ogni timeframe più le notizie recenti e li invia a {model} (risultato mostrato qui, non salvato).",
+  "gold_export_title": "Dati oro per modalità",
+  "gold_job_description": "Gira sul server, carica su Drive e avvisa su Telegram.",
+  "gold_job_start": "Avvia processo oro",
+  "gold_job_start_details": "Il server scarica XAUUSD da {exchange}, lo fa analizzare a {model}, carica il risultato su Drive e avvisa Telegram secondo le destinazioni.",
+  "gold_job_state": "Stato {status} · {at}",
+  "gold_job_stop": "Ferma processo oro",
+  "gold_job_stop_details": "Invia un segnale di arresto al processo oro; i risultati incompleti non vengono caricati.",
+  "gold_job_title": "Processo oro sul server",
+  "gold_model": "Modello AI",
+  "gold_price_label": "Prezzo XAUUSD",
+  "gold_price_refresh": "Prezzo attuale",
+  "gold_source": "Fonte prezzo",
+  "history_cleanup": "Elimina righe vecchie",
+  "history_cleanup_details": "Le righe più vecchie di {hours} ore saranno eliminate, tenendo sempre la più recente per simbolo e timeframe. Non si può annullare.",
+  "history_clear": "Cancella tutto lo storico",
+  "history_clear_confirm": "Elimina tutto",
+  "history_clear_details": "Ogni riga dello storico sarà eliminata, comprese le più recenti usate dalle esportazioni. Le esportazioni restano vuote finché i dati non vengono riscaricati. Non si può annullare.",
+  "history_detail_title": "Risultato salvato #{id}",
+  "history_hours": "Ore ({min}..{max})",
+  "history_maintenance": "Pulizia storico",
+  "history_maintenance_hint": "Libera spazio eliminando i risultati salvati.",
+  "history_search_placeholder": "Ticker o timeframe",
+  "inbound_intro": "Risultati che altri sistemi hanno segnalato qui come eventi firmati (CloudEvents su Standard Webhooks). Apri una riga per vedere il risultato dove è stato prodotto.",
+  "inbound_open": "Apri risultato",
+  "inbound_sender": "Mittente",
+  "inbound_subject": "Oggetto",
+  "inbound_type": "Evento",
+  "invalid_input": "Valore non valido: {field}",
+  "job_cooldown": "In pausa fino alle {until}",
+  "job_failed": "Non riusciti: {list}",
+  "job_logs": "Log recente",
+  "job_progress": "Giro {round} · TF {tf} · {symbol} · {current}/{total}",
+  "job_state": "Processo: {mode} · {status} · {phase}",
+  "job_status_title": "Stato del job",
+  "job_stop": "Ferma processo",
+  "job_stop_auto_details": "Il ciclo automatico si ferma dopo il simbolo corrente e non riparte finché non viene riavviato.",
+  "job_stop_custom_details": "Il recupero personalizzato viene annullato; i simboli non ancora scaricati vengono saltati.",
+  "job_stop_title": "Ferma il processo in corso",
+  "locale_label": "Lingua",
+  "login_description": "Usa l'account di questo server.",
+  "login_password": "Password",
+  "login_submit": "Accedi",
+  "login_title": "Accedi",
+  "login_username": "Nome utente",
+  "logout": "Esci",
+  "msg_earning_no_provider": "Provati tutti i provider (Finnhub, FMP, Alpha Vantage) — nessun dato sugli utili per questo simbolo",
+  "msg_gold_not_running": "Nessun job sull'oro in esecuzione",
+  "msg_gold_stop_sent": "Segnale di stop inviato",
+  "msg_history_cleaned": [
+    {
+      "declarations": [
+        "input deleted",
+        "local deletedPlural = deleted: plural"
+      ],
+      "selectors": [
+        "deletedPlural"
+      ],
+      "match": {
+        "deletedPlural=one": "Eliminata {deleted} riga più vecchia di {hours} h (si tiene la più recente per simbolo)",
+        "deletedPlural=*": "Eliminate {deleted} righe più vecchie di {hours} h (si tiene la più recente per simbolo)"
+      }
+    }
+  ],
+  "msg_history_cleared": "Storico svuotato",
+  "msg_radar_asof_ahead": "L'as-of di questo giro ({asof} ET) è {hours} h avanti rispetto ad adesso — i CSV non hanno un'intestazione oraria, quindi la formula lo stima dalla fine della barra più recente (una barra 1W può essere avanti fino a 7 giorni). Non leggerlo come ora reale.",
+  "msg_radar_data_old_days": "I dati di questo giro sono di {age} giorni più vecchi del calcolo — mostrano il mercato alle {asof} ET, non adesso (aggiorna i dati prima di decidere oggi)",
+  "msg_radar_data_old_hours": "I dati di questo giro sono di {age} h più vecchi del calcolo — mostrano il mercato alle {asof} ET, non adesso (aggiorna i dati prima di decidere oggi)",
+  "msg_radar_done": "Fatto",
+  "msg_radar_done_pruned": [
+    {
+      "declarations": [
+        "input count",
+        "local countPlural = count: plural"
+      ],
+      "selectors": [
+        "countPlural"
+      ],
+      "match": {
+        "countPlural=one": "Fatto · si tengono al massimo {keep} giri, quindi è stato eliminato il più vecchio ({stamps})",
+        "countPlural=*": "Fatto · si tengono al massimo {keep} giri, quindi sono stati eliminati i {count} più vecchi ({stamps})"
+      }
+    }
+  ],
+  "msg_radar_failed": "Il giro non è riuscito: {reason}",
+  "msg_radar_fetching_tf": "Lettura di {tf} dal database",
+  "msg_radar_formula_csv": "Creazione del file delle formule + notizie (formula csv)",
+  "msg_radar_missing_1d_nodata": "Manca il 1D → nessuno stage UIPT completo (si passa alla modalità breve UIPT-S) · breadth/RS calcolati dal 4H (nessun dato nel DB)",
+  "msg_radar_missing_1d_unselected": "Manca il 1D → nessuno stage UIPT completo (si passa alla modalità breve UIPT-S) · breadth/RS calcolati dal 4H (non selezionato)",
+  "msg_radar_missing_1h_nodata": "Manca l'1H → nessuno strato di trigger d'ingresso (VWAP/RVOL/OBV orari) · nessuno stage può arrivare a TRIGGER (nessun dato nel DB)",
+  "msg_radar_missing_1h_unselected": "Manca l'1H → nessuno strato di trigger d'ingresso (VWAP/RVOL/OBV orari) · nessuno stage può arrivare a TRIGGER (non selezionato)",
+  "msg_radar_missing_1w_nodata": "Manca il 1W → il Kill-Switch settimanale non si può verificare · ogni stage è meno affidabile (l'UIPT completo richiede il 1W) (nessun dato nel DB)",
+  "msg_radar_missing_1w_unselected": "Manca il 1W → il Kill-Switch settimanale non si può verificare · ogni stage è meno affidabile (l'UIPT completo richiede il 1W) (non selezionato)",
+  "msg_radar_missing_4h_nodata": "Manca il 4H → manca lo strato di conferma intermedio (struttura tra 1D e 1H) (nessun dato nel DB)",
+  "msg_radar_missing_4h_unselected": "Manca il 4H → manca lo strato di conferma intermedio (struttura tra 1D e 1H) (non selezionato)",
+  "msg_radar_reused": "Dati invariati dall'ultimo giro — si usa il giro esistente",
+  "msg_radar_saving": "Salvataggio del giro nel database",
+  "msg_radar_screening": "Esecuzione della formula radar ({tfs})",
+  "msg_radar_short_without_4h": "Questo giro è passato alla modalità breve (UIPT-S), che usa il 4H come filtro di struttura, ma il 4H manca → ogni simbolo risulta NO-DATA e kill% = 0 per costruzione, non perché il mercato vada bene — non usare questo giro per decidere; seleziona il 4H, oppure anche 1W+1D",
+  "msg_radar_started": "Avvio di un nuovo giro",
+  "msg_radar_tf_mixed": "{tf} ha più orari di salvataggio ({count} valori) — alcuni simboli sono rimasti da un giro precedente",
+  "msg_radar_tf_older": "{tf} è {hours} h più vecchio del timeframe più recente di questo giro — orologi diversi; attenzione a leggere la confluenza tra timeframe",
+  "msg_radar_thread_failed": "Impossibile avviare il processo in background",
+  "msg_tv_anonymous": "Nessun token o login — la modalità anonima incontra più facilmente i limiti",
+  "msg_tv_cooldown_active": "Il circuit breaker sospende le richieste per altri {seconds} s (limite raggiunto di recente) — il test salta la pausa",
+  "msg_tv_cooldown_none": "Nessun cooldown in corso — nessun limite raggiunto di recente",
+  "msg_tv_login_failed_anonymous": "Accesso come TV_USERNAME ({username}) non riuscito e nessun token di riserva — modalità anonima",
+  "msg_tv_login_failed_token_used": "Accesso come TV_USERNAME ({username}) non riuscito — si usa TV_AUTH_TOKEN (controlla utente/password)",
+  "msg_tv_login_ok": "Accesso come TV_USERNAME ({username}) riuscito — token valido per altri {minutes} min (rinnovo automatico)",
+  "msg_tv_probe_empty": "{target} non ha restituito nulla in {seconds} s — limite raggiunto o connessione interrotta",
+  "msg_tv_probe_error": "{target} errore: {error}",
+  "msg_tv_probe_ok": [
+    {
+      "declarations": [
+        "input bars",
+        "local barsPlural = bars: plural"
+      ],
+      "selectors": [
+        "barsPlural"
+      ],
+      "match": {
+        "barsPlural=one": "{target}: {bars} barra in {seconds} s",
+        "barsPlural=*": "{target}: {bars} barre in {seconds} s"
+      }
+    }
+  ],
+  "msg_tv_probe_slow": [
+    {
+      "declarations": [
+        "input bars",
+        "local barsPlural = bars: plural"
+      ],
+      "selectors": [
+        "barsPlural"
+      ],
+      "match": {
+        "barsPlural=one": "{target}: {bars} barra in {seconds} s — insolitamente lento, forse rallentato dal server",
+        "barsPlural=*": "{target}: {bars} barre in {seconds} s — insolitamente lento, forse rallentato dal server"
+      }
+    }
+  ],
+  "msg_tv_probe_timeout": "{target} bloccato per oltre {seconds} s — probabilmente rallentato o limitato",
+  "msg_tv_token_expired": "TV_AUTH_TOKEN è scaduto da {minutes} min — incolla un nuovo token o rimuovilo",
+  "msg_tv_token_ok": "Si usa TV_AUTH_TOKEN — valido per altri {minutes} min",
+  "msg_tv_token_unreadable": "Si usa TV_AUTH_TOKEN (impossibile leggerne la scadenza)",
+  "msg_tv_verdict_down": "Connessione impossibile / limite raggiunto — attendi 5–15 min, chiudi le schede TradingView nel browser e riprova",
+  "msg_tv_verdict_ok": "Connessione a TradingView regolare ✓",
+  "msg_tv_verdict_partial": "Connessione parziale — limitata a tratti; fai una pausa prima di avviare un job",
+  "msg_tv_verdict_slow": "Connesso ma lento — probabilmente rallentato; attendi 5–15 min prima di avviare un job",
+  "nav_dashboard": "Processi",
+  "nav_earning_scan": "Cronologia scansione utili",
+  "nav_export": "Esportazione",
+  "nav_gold": "Oro",
+  "nav_history": "Cronologia download",
+  "nav_home": "Panoramica",
+  "nav_inbound_events": "Eventi in arrivo",
+  "nav_label": "Menu principale",
+  "nav_portfolio": "Portafoglio",
+  "nav_radar_summary": "Riepilogo radar",
+  "nav_settings": "Impostazioni",
+  "nav_stock_radar": "Cronologia Stock Radar",
+  "nav_watchlist": "Lista di osservazione",
+  "no": "No",
+  "overview_by_exchange": "Ticker per borsa",
+  "overview_exchanges": "Borse",
+  "overview_missing": "Borsa mancante",
+  "overview_top_exchange": "La più grande: {exchange} ({count})",
+  "page_desc_dashboard": "Avvia, segui e ferma lo scaricamento dei dati sul server.",
+  "page_desc_earning_scan": "Risultati degli utili per ticker, la scansione più recente per prima.",
+  "page_desc_export": "Esportazioni CSV e ZIP delle barre scaricate.",
+  "page_desc_gold": "Prezzo dell'oro, analisi AI e job dell'oro sul server.",
+  "page_desc_history": "Ogni risultato salvato. Aprine uno per vederne le barre.",
+  "page_desc_home": "Simboli seguiti dal server e stato di questa build.",
+  "page_desc_portfolio": "Posizioni aperte e storico operazioni per portafoglio.",
+  "page_desc_radar_summary": "Giri radar calcolati sul server dai dati CSV.",
+  "page_desc_settings": "Impostazioni del server, accesso TradingView e password.",
+  "page_desc_stock_radar": "Scansioni per formula e ticker, le più recenti per prime.",
+  "page_desc_watchlist": "Ticker raggruppati in liste. Aggiungili, rinominali o rimuovili qui.",
+  "password_changed": "Password cambiata — le altre sessioni sono state chiuse",
+  "password_confirm": "Ripeti la nuova password",
+  "password_current": "Password attuale",
+  "password_hint": "Cambiandola si chiudono tutte le altre sessioni (altri browser e dispositivi).",
+  "password_mismatch": "Le due nuove password non coincidono",
+  "password_new": "Nuova password",
+  "pf_add_description": "Registra un acquisto o una vendita; un nome nuovo crea il portafoglio.",
+  "pf_add_title": "Aggiungi operazione",
+  "pf_col_cost": "Costo",
+  "pf_remove_confirm": "Elimina {symbol}",
+  "pf_remove_details": "Tutte le operazioni di {symbol} nel portafoglio \"{port}\" saranno eliminate definitivamente. Non si può annullare.",
+  "pf_remove_title": "Rimuovi simbolo dal portafoglio",
+  "pf_rename_description": "Dà un nuovo nome al portafoglio \"{port}\".",
+  "pf_rename_title": "Rinomina portafoglio",
+  "pf_stat_cost": "Costo totale",
+  "pf_stat_ports": "Portafogli",
+  "pf_stat_positions": "Posizioni aperte",
+  "pf_tab_positions": "Posizioni ({count})",
+  "picker_filter": "Filtra simboli",
+  "picker_from_list": "Scegli dalla lista",
+  "portfolio_cost": "Costo totale {cost}",
+  "portfolio_trades": "Storico operazioni ({count})",
+  "radar_delete": "Elimina questo giro",
+  "radar_delete_confirm": "Elimina {stamp}",
+  "radar_delete_details": "Il giro {stamp} (digest e tutte le tabelle) sarà eliminato definitivamente dal database. Non si può annullare.",
+  "radar_new_record": "Forza un nuovo record (non riusare un giro con gli stessi dati)",
+  "radar_round_meta": "Salvato {created} · breadth {breadth} titoli · {kill}",
+  "radar_round_title": "Giro {stamp}",
+  "radar_rounds_title": "Giri precedenti",
+  "radar_run": "Esegui un giro radar",
+  "radar_run_details": "Calcola un giro radar sul server dai dati CSV più recenti per {tfs}. Se i dati coincidono con un giro precedente, viene riusato.",
+  "radar_run_details_new": "Calcola un giro radar sul server dai dati CSV più recenti per {tfs} e lo salva sempre come nuovo giro.",
+  "radar_run_hint": "Usa i dati CSV più recenti sul server.",
+  "radar_run_started": "Stato: {status}",
+  "radar_status": "Stato: {status} {phase} {message}",
+  "radar_tf_title": "Dati per timeframe",
+  "register_hint": "Questo server ha un solo utente: dopo la creazione la registrazione si chiude.",
+  "register_submit": "Crea account e accedi",
+  "register_title": "Crea il primo account",
+  "runs_title": "Esecuzioni passate",
+  "scan_description": "Scegli ticker, formule e timeframe, poi avvia.",
+  "scan_details": [
+    {
+      "declarations": [
+        "input count",
+        "local countPlural = count: plural"
+      ],
+      "selectors": [
+        "countPlural"
+      ],
+      "match": {
+        "countPlural=one": "Scarica {count} simbolo × {tfs} (circa {calls} richieste) per {formulas}, poi salva il risultato nello storico. Può richiedere alcuni minuti.",
+        "countPlural=*": "Scarica {count} simboli × {tfs} (circa {calls} richieste) per {formulas}, poi salva il risultato nello storico. Può richiedere alcuni minuti."
+      }
+    }
+  ],
+  "scan_formulas": "Formule",
+  "scan_mode": "Modalità",
+  "scan_mode_ai": "Analisi AI (a pagamento)",
+  "scan_mode_logic": "Dati grezzi, senza AI",
+  "scan_start": "Avvia scansione",
+  "scan_title": "Nuova scansione",
+  "search_label": "Cerca",
+  "settings_auto_skip": "Finestra di salto automatico",
+  "settings_auto_skip_hint": "L'auto salta un simbolo i cui dati salvati sono più recenti di così.",
+  "settings_destinations": "Destinazioni dei report",
+  "settings_destinations_hint": "Dove vengono inviati i report completati.",
+  "settings_password": "Password",
+  "settings_tab_general": "Generale",
+  "settings_timezone": "Fuso orario visualizzato",
+  "settings_timezone_hint": "Gli orari di ogni pagina sono mostrati in questo fuso.",
+  "settings_tv": "TradingView",
+  "settings_tv_hint": "Come il server accede a TradingView.",
+  "sidebar_collapse": "Comprimi barra laterale",
+  "sidebar_expand": "Espandi barra laterale",
+  "sidebar_open": "Apri menu",
+  "state_empty": "Nessun dato",
+  "state_error": "Impossibile caricare i dati",
+  "state_loading": "Caricamento…",
+  "stock_radar_summary": "{symbols} ticker · {timeframes} · {formulas}",
+  "symbols_missing_exchange": "Borsa mancante: {symbols}",
+  "symbols_total": [
+    {
+      "declarations": [
+        "input count",
+        "local countPlural = count: plural"
+      ],
+      "selectors": [
+        "countPlural"
+      ],
+      "match": {
+        "countPlural=one": "{count} ticker ({build} dalla build · {extra} aggiunti dal database)",
+        "countPlural=*": "{count} ticker ({build} dalla build · {extra} aggiunti dal database)"
+      }
+    }
+  ],
+  "table_next": "Pagina successiva",
+  "table_no_results": "Nessuna riga corrispondente",
+  "table_prev": "Pagina precedente",
+  "table_range": "{from}–{to} di {total}",
+  "table_rows_per_page": "Righe per pagina",
+  "table_search_placeholder": "Cerca…",
+  "theme_to_dark": "Passa al tema scuro",
+  "theme_to_light": "Passa al tema chiaro",
+  "toast_dismiss": "Chiudi notifica",
+  "toast_region": "Notifiche",
+  "trade_buy": "Acquisto",
+  "trade_sell": "Vendita",
+  "tv_mode_1": "Modalità 1: utente + password",
+  "tv_mode_2": "Modalità 2: solo token",
+  "tv_mode_3": "Modalità 3: classica",
+  "tv_mode_confirm": "Il server passa a {mode} e cancella l'accesso TradingView in cache.",
+  "tv_mode_confirm_button": "Cambia modalità",
+  "tv_mode_confirm_title": "Cambiare la modalità di accesso?",
+  "tv_mode_hint": "Cambiare modalità cancella l'accesso memorizzato sul server.",
+  "tv_mode_label": "Modalità di accesso",
+  "tv_test_description": "Verifica che il server raggiunga TradingView e legga le barre.",
+  "tv_test_run": "Esegui test",
+  "tv_test_title": "Test connessione TradingView",
+  "tv_test_verdict": "{verdict} ({passed}/{total})",
+  "tv_token_active": "Token attivo, scade tra {minutes} min",
+  "tv_token_expired": "Token scaduto",
+  "tv_token_input": "Nuovo token",
+  "tv_token_none": "Nessun token impostato",
+  "tz_invalid": "Lo scarto deve essere un numero intero nell'intervallo.",
+  "tz_label": "Etichetta",
+  "tz_offset": "Scarto da UTC (minuti, {min}..{max})",
+  "tz_use_browser": "Usa il fuso di questo browser",
+  "user_menu": "Account",
+  "user_menu_signed_in": "Accesso effettuato",
+  "version_autostart": "Avvio automatico",
+  "version_badge": "v{version} · {commit}",
+  "version_built": "Compilato",
+  "version_job": "Job automatico",
+  "version_job_value": "{phase} · giro {round}/{total}",
+  "version_label": "Versione",
+  "watchlist_all": "Tutti ({count})",
+  "watchlist_list_count": "{list} ({count})",
+  "watchlist_search_placeholder": "Ticker o nome",
+  "wl_add_description": "Aggiunge un ticker a una lista; un nome nuovo crea la lista.",
+  "wl_add_title": "Aggiungi simbolo",
+  "wl_remove_confirm": "Rimuovi {symbol}",
+  "wl_remove_details": "{symbol} sarà rimosso solo dalla lista \"{list}\". Lo storico prezzi scaricato resta.",
+  "wl_remove_title": "Rimuovi simbolo dalla lista",
+  "wl_rename_description": "Dà un nuovo nome alla lista \"{list}\".",
+  "wl_rename_title": "Rinomina lista",
+  "yes": "Sì"
+}
